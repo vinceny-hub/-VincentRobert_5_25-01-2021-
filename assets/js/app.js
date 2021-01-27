@@ -74,20 +74,20 @@
 
           // fin de page de selection
 
-    var addToCartButtons = document.getElementsByClassName('shop-item-button')
-    for (var i = 0; i < addToCartButtons.length; i++){
-      var button = addToCartButtons[i]
-      button.addEventListener('click', addToCardClicked)
-      console.log(button)
-    }
+    // var addToCartButtons = document.getElementsByClassName('shop-item-button')
+    // for (var i = 0; i < addToCartButtons.length; i++){
+    //   var button = addToCartButtons[i]
+    //   button.addEventListener('click', addToCardClicked)
+    //   console.log(button)
+    // }
     
     
-    function addToCardClicked(event) {
-      var button = event.target
-      var card = button.parentElement.parentElement
-      var title = card.getElementByClassName('card-title')[0].innerText
-      console.log(title)
-    }
+    // function addToCardClicked(event) {
+    //   var button = event.target
+    //   var card = button.parentElement.parentElement
+    //   var title = card.getElementByClassName('card-title')[0].innerText
+    //   // console.log(title)
+    // }
 
     // page description
     fetch ('http://localhost:3000/api/teddies')
@@ -112,8 +112,8 @@
           let url = new URL ('http://127.0.0.1:5500/P5/produit.html'+ search_params);
           // let params = new URLSearchParams(url.search.slice(0))
           // console.log(params)
-          console.log(oursID)
-          console.log(id)
+          // console.log(oursID)
+          // console.log(id)
           // console.log(url)
 
 //         }else{
@@ -135,24 +135,31 @@
           // }, false);
             
          for (var i = 0; i < data.length; i++){
-          let galOurs = data.find(s => {
-            return s._id === oursID            
+          let galOurs = data.find(nId => {
+            return nId._id === oursID            
           })
-          console.log(galOurs)
+          // console.log(galOurs)
           var Oid = data
           // let galOurs = data.indexOf(oursID)
           // console.log(galOurs)
           
-          console.log(data.indexOf(oursID) > -1)
+          // console.log(data.indexOf(oursID) > -1)
           // let ourson = Oid.find(function(elem, index, arr, id, name){
           // console.log(index)
-          
+       
           
           // console.log(elem)
           // console.log(name)
           // });
-          console.log(Oid)
-          console.log(Oid.indexOf(data[oursID]))
+          liColors = galOurs.colors.length;
+          text = "<ul>";
+          for (i = 0; i < liColors; i++) {
+          text += "<li>" + galOurs.colors[i] + "</li>";
+          }
+          text += "</ul>";
+
+          // console.log(Oid)
+          // console.log(Oid.indexOf(data[oursID]))
           const oursonUnique = document.getElementById('oursonsProduit')
           oursonUnique.innerHTML = `
           
@@ -174,18 +181,55 @@
                   <h3 class="my-3">Description de l'ourson</h3>
                   <p class="font-italic font-weight-bold">${galOurs.description}</p>
                   <h3 class="my-3"></h3>
-                  <ul>
-                    <li>${galOurs.colors[0]}</li>
-                    <li>${galOurs.colors[1]}</li>
-                    <li>${galOurs.colors[2]}</li>
-                    <li>${galOurs.colors[3]}</li>
-                  </ul>
-                  <button class="btn btn-info shop-item-button">Ajouter au panier</button>
+                  
+                    ${text}
+                  
+                <button class="btn btn-info shop-item-button">Ajouter au panier</button>
                 </div>
+                </div>
+                `
+              
+              // var fruits, text, fLen, i;
+              // fruits = ["Banana", "Orange", "Apple", "Mango"];
+            
+              // document.getElementById('oursonsDescription').innerHTML = galOurs.colors = 
+              // `
+              // <li>${galOurs.colors}</li> `
+              // console.log(galOurs.colors)
+            }}
 
-              </div>
-              `
-          }}    })
+            //   for (var i = 0; i < data.length; i++){
+            //   // document.createElement('ul')
+            //   document.getElementById('oursonsDescription').innerHTML = 
+            //   `
+            //   <ul>
+            //   <li>${data.colors}</li>
+            //   </ul
+            //    `
+            //   console.log(data.colors)
+             })
+
+            // }}
+              // console.log(galOurs.colors)
+              // let galOurs = data; 
+              // for (var i = 0; i < galOurs.colors.length; i++){
+              //   const oursonDes = document.getElementById('oursonsDescription')
+              //   oursonDes.innerHTML =  `
+              //     <div>${galOurs.color}</div> `
+              //    }
+
+              
+
+              
+
+              
+
+          
+
+         
+
+
+          
         // fin de page de description
 
 
