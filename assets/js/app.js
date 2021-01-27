@@ -65,11 +65,18 @@
                 </p>
                 <span class="font-weight-bold lead">₽ ${data[i].price}</span>
                 <p class="card-text font-italic font-weight-bold">${data[i].description}</p>
-                <button class="btn btn-info shop-item-button">Panier</button>
+                <button class="btn btn-info shop-item-button">Ajouter au panier</button>
               </div>
             </div>
           </div>
           `
+          let carts = document.querySelectorAll('.shop-item-button');
+          for (let i= 0; i < carts.length; i++){
+          carts[i].addEventListener('click', ()=> {
+          console.log("added to cart");
+          })}
+
+          
           }})
 
           // fin de page de selection
@@ -103,13 +110,11 @@
 
 //         if (search_params.has('id')){
 
-          let oursID = search_params.get('id');
-          
-          var search_params = new URLSearchParams(window.location.search);
-         
-          if(search_params.has('id')) {
-          var id = search_params.getAll('id');
-          let url = new URL ('http://127.0.0.1:5500/P5/produit.html'+ search_params);
+        let oursID = search_params.get('id');
+        var search_params = new URLSearchParams(window.location.search);
+        if(search_params.has('id')) {
+        var id = search_params.getAll('id');
+          // let url = new URL ('http://127.0.0.1:5500/P5/produit.html'+ search_params);
           // let params = new URLSearchParams(url.search.slice(0))
           // console.log(params)
           // console.log(oursID)
@@ -134,12 +139,12 @@
           // console.log(galleriesRaw);
           // }, false);
             
-         for (var i = 0; i < data.length; i++){
+          for (var i = 0; i < 1; i++){
           let galOurs = data.find(nId => {
             return nId._id === oursID            
           })
-          // console.log(galOurs)
-          var Oid = data
+          
+          // var Oid = data
           // let galOurs = data.indexOf(oursID)
           // console.log(galOurs)
           
@@ -157,7 +162,6 @@
           text += "<li>" + galOurs.colors[i] + "</li>";
           }
           text += "</ul>";
-
           // console.log(Oid)
           // console.log(Oid.indexOf(data[oursID]))
           const oursonUnique = document.getElementById('oursonsProduit')
@@ -171,34 +175,38 @@
               </h1>
             
               <!-- Portfolio Item Row -->
-              <div class="row">
+                <div class="row">
             
-                <div class="col-md-8">
-                  <img class="img-fluid" src=${galOurs.imageUrl} alt="">
-                </div>
+                  <div class="col-md-8">
+                    <img class="img-fluid" src=${galOurs.imageUrl} alt="">
+                  </div>
             
-                <div class="col-md-4">
-                  <h3 class="my-3">Description de l'ourson</h3>
-                  <p class="font-italic font-weight-bold">${galOurs.description}</p>
-                  <h3 class="my-3"></h3>
-                  
-                    ${text}
-                  
-                <button class="btn btn-info shop-item-button">Ajouter au panier</button>
-                </div>
+                  <div class="col-md-4">
+                    <h3 class="my-3">Description de l'ourson</h3>
+                    <p class="font-italic font-weight-bold">${galOurs.description}</p>
+                    <h3 class="my-3">${text}</h3>
+                    <button class="btn btn-info shop-item-button">Ajouter au panier</button>
+                  </div>
                 </div>
                 `
-              
-              // var fruits, text, fLen, i;
+              let carts = document.querySelectorAll('.shop-item-button');
+              for (let i= 0; i < carts.length; i++){
+              carts[i].addEventListener('click', ()=> {
+              console.log("added to cart");
+              })}
+            }}})
+
+             // var fruits, text, fLen, i;
               // fruits = ["Banana", "Orange", "Apple", "Mango"];
             
               // document.getElementById('oursonsDescription').innerHTML = galOurs.colors = 
               // `
               // <li>${galOurs.colors}</li> `
               // console.log(galOurs.colors)
-            }}
 
-            //   for (var i = 0; i < data.length; i++){
+
+
+             //   for (var i = 0; i < data.length; i++){
             //   // document.createElement('ul')
             //   document.getElementById('oursonsDescription').innerHTML = 
             //   `
@@ -207,7 +215,8 @@
             //   </ul
             //    `
             //   console.log(data.colors)
-             })
+
+
 
             // }}
               // console.log(galOurs.colors)
@@ -217,6 +226,8 @@
               //   oursonDes.innerHTML =  `
               //     <div>${galOurs.color}</div> `
               //    }
+
+             
 
               
 
