@@ -206,8 +206,8 @@ fetch ('http://localhost:3000/api/teddies')
 
       
       }
-      onLoadCartNumbers()
-      cartNumbers()
+      // onLoadCartNumbers()
+      // cartNumbers()
 
 
 
@@ -215,16 +215,24 @@ fetch ('http://localhost:3000/api/teddies')
           
         const addToCartButton = document.getElementsByClassName('addToCartBtn');
         // console.log(addToCartButton) 
-        for (var i = 0; i < addToCartButton.length; i++){
+        if(localStorage.getItem('cartId') == null){
+          localStorage.setItem('cartId', '[]')  }
+          else{ 
+          for (var i = 0; i < addToCartButton.length; i++){ 
+          addToCartButton[i].addEventListener('click', (e) => (
+          localStorage.setItem('cartId', galOursStr) ))} }
+         
+
+       
         
-        addToCartButton[i].addEventListener('click', (e) => (
+       
         // console.log(e), 
-        localStorage.setItem('cartId', galOursStr)
+       
         
          
          
         //  ,alert('Added to Storage')
-         ) )  }
+                
     // **************************************************************
 
 // ******************get local storage ****************************************

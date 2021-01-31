@@ -36,7 +36,8 @@
 //             <td><img src=${prod.pic} class="img-fluid img-thumbnail w-50"></td>
 //             <td class="w-25">${prod.name}</td>
 //             <td class="w-25">${prod.price}</td>
-//             <td class="w-25"><button class="btn btn-info">view</button>
+//             <td class="w-25"><button class="btn btn-info"></button>
+                
 //             `
 //         )
 
