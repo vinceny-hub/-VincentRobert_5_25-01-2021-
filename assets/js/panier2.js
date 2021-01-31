@@ -168,6 +168,49 @@ fetch ('http://localhost:3000/api/teddies')
     let dataStr = JSON.stringify(data)
     let galOursStr =JSON.stringify(galOurs)
 
+
+// *********************** counter inCart ********************************
+      let carts = document.querySelectorAll('.shop-item-button')
+
+      for (let i = 0; i < carts.length; i++){
+    
+      carts[i].addEventListener('click', ()=> {
+      cartNumbers(data);
+      } )
+
+       }
+
+        function onLoadCartNumbers() {
+        let productNumbers = localStorage.getItem('cartNumbers')
+
+        if(productNumbers){
+          document.querySelector('.cart span').textContent = productNumbers
+        } 
+
+        }
+
+      function cartNumbers (data){ 
+      
+      let productNumbers = localStorage.getItem('cartNumbers')
+
+      productNumbers = parseInt(productNumbers)
+      
+      if (productNumbers){
+        localStorage.setItem('cartNumbers' , productNumbers + 1)
+        document.querySelector('.cart span').textContent = productNumbers + 1
+      }else{
+        localStorage.setItem('cartNumbers', 1)
+        document.querySelector('.cart span').textContent = 1
+      }
+      
+
+      
+      }
+      onLoadCartNumbers()
+      cartNumbers()
+
+
+
 // ***********************set local storage ******************************
           
         const addToCartButton = document.getElementsByClassName('addToCartBtn');
@@ -178,7 +221,7 @@ fetch ('http://localhost:3000/api/teddies')
         // console.log(e), 
         localStorage.setItem('cartId', galOursStr)
         
-        
+         
          
         //  ,alert('Added to Storage')
          ) )  }
@@ -208,16 +251,18 @@ fetch ('http://localhost:3000/api/teddies')
          
           
           
-          for (var i = 0; i < localStorage.length; i++){ 
+          for (var i = 0; i < localStorage.key.length; i++){ 
           document.querySelector('.container-ours').innerHTML += 
           `
           <table class="table table-image">
             <thead class="thead-dark">
               <tr class="text-center">
-              <th><img src=${OP.imageUrl} class="img-fluid img-thumbnail w-50"></th>
-                <th class="w-25">${OP.name}</th>
-                <th class="w-25">${OP.price}</th>
-               <!-- <th class="w-25">${text}</th>-->
+              <th class w-20><img src=${OP.imageUrl} class="img-fluid img-thumbnail w-20"></th>
+                <th class="w-20"><p class"h4">${OP.name}</p></th>
+                <th class="w-20"><p class"h4">${OP.price}</p></th>
+                <td class="w-20"><button class="btn btn-info">Pay</button>
+                <td class="w-20"><button class="btn btn-info">Remove</button>
+               <!-- <th class="w-10">${text}</th>-->
              
               </tr>
             </thead>
