@@ -45,49 +45,30 @@
 
 
 // *****************Page de selection********************************************************* 
- fetch ('http://localhost:3000/api/teddies')
-.then((res) => res.json())
-.then((data) => {
-for (var i = 0; i < data.length; i++){ 
-// const teddyBear = document.createElement("span");
-    const getOursons = document.getElementById('oursonsList')
-    getOursons.innerHTML += 
-      `
-      <div class="col-12 col-md-6 col-lg-4 mb-4">
-        <div class="card h-100">
-          <a href="produit.html?id=${data[i]._id}"><img src=${data[i].imageUrl} class="card-img-top"></a>
-          <div class="card-body">
-            <p class="card-title h3 font-weight-bold">
-              <a href="produit.html?id=${data[i]._id}">${data[i].name}</a>
-            </p>
-            <span class="font-weight-bold lead">₽ ${data[i].price}</span>
-            <p class="card-text font-italic font-weight-bold">${data[i].description}</p>
-            <button class="btn btn-info shop-item-button">Ajouter au panier</button>
-          </div>
-        </div>
-      </div>
-      `
-      // let carts = document.querySelectorAll('.shop-item-button');
-      // console.log(carts.length);
-      // for (let i = 0; i < carts.length; i++){
-      // carts[i].addEventListener('click', ()=> {
-      // cartId();
-      // console.log(i+1);
 
-      // function cartId(){
-      // let productNumbers = localStorage.getItem('cartId', data[i]._id)
-      // console.log(productNumbers);
-      // localStorage.setItem('cartId', data[i]._id)
-
-     
-         
-     
-                    
-    //   }
-
-    // })}
-     
-      }})
+//  fetch ('http://localhost:3000/api/teddies')
+// .then((res) => res.json())
+// .then((data) => {
+// for (var i = 0; i < data.length; i++){ 
+// // const teddyBear = document.createElement("span");
+//     const getOursons = document.getElementById('oursonsList')
+//     getOursons.innerHTML += 
+//       `
+//       <div class="col-12 col-md-6 col-lg-4 mb-4">
+//         <div class="card h-100">
+//           <a href="produit.html?id=${data[i]._id}"><img src=${data[i].imageUrl} class="card-img-top"></a>
+//           <div class="card-body">
+//             <p class="card-title h3 font-weight-bold">
+//               <a href="produit.html?id=${data[i]._id}">${data[i].name}</a>
+//             </p>
+//             <span class="font-weight-bold lead">₽ ${data[i].price}</span>
+//             <p class="card-text font-italic font-weight-bold">${data[i].description}</p>
+//             <button class="btn btn-info shop-item-button">Ajouter au panier</button>
+//           </div>
+//         </div>
+//       </div>
+//       `
+//        }})
    
 // *******************fin de page de selection************************************************************
 
@@ -139,7 +120,7 @@ fetch ('http://localhost:3000/api/teddies')
                 <h3 class="my-3">Description de l'ourson</h3>
                 <p class="font-italic font-weight-bold">${galOurs.description}</p>
                 <h4 class="my-3">${text}</h4>
-              <button class="btn btn-info shop-item-button addToCartBtn addToCart">Ajouter au panier</button>
+              <button id="addCart" class="btn btn-info shop-item-button addToCartBtn addToCart">Ajouter au panier</button>
               </div>
             </div>
             `
@@ -151,115 +132,128 @@ fetch ('http://localhost:3000/api/teddies')
         fetch ('http://localhost:3000/api/teddies')
           .then((response) => response.json())
           .then((data) => {
-        var search_params = new URLSearchParams(window.location.search); 
+          var search_params = new URLSearchParams(window.location.search); 
 
-    let oursID = search_params.get('id');
-    var search_params = new URLSearchParams(window.location.search);
-    if(search_params.has('id')) {
-    var id = search_params.getAll('id');
+          let oursID = search_params.get('id')
+          var search_params = new URLSearchParams(window.location.search);
+          if(search_params.has('id')) {
+          var id = search_params.getAll('id')
      
         
-      for (var i = 0; i < 1; i++){
-      let galOurs = data.find(nId => {
-        return nId._id === oursID            
-      })
+          for (var i = 0; i < 1; i++){
+          let galOurs = data.find(nId => {
+            return nId._id === oursID            
+          })
 
 
-    let dataStr = JSON.stringify(data)
-    let galOursStr =JSON.stringify(galOurs)
+          let dataStr = JSON.stringify(data)
+       // let galOursStr =JSON.stringify(galOurs)
 
 
 // *********************** counter inCart ********************************
-      let carts = document.querySelectorAll('.shop-item-button')
 
-      for (let i = 0; i < carts.length; i++){
-    
-      carts[i].addEventListener('click', ()=> {
-      cartNumbers(data);
-      } )
+          let carts = document.getElementsByClassName('addToCartBtn')
 
-       }
+          for (let i = 0; i < carts.length; i++){
+        
+          carts[i].addEventListener('click', ()=> {
+          cartNumbers(data);
+          } )
 
-        function onLoadCartNumbers() {
-        let productNumbers = localStorage.getItem('cartNumbers')
+          }
 
-        if(productNumbers){
-          document.querySelector('.cart span').textContent = productNumbers
-        } 
+          function onLoadCartNumbers() {
+          let productNumbers = localStorage.getItem('cartNumbers')
 
-        }
+          if(productNumbers){
+            document.querySelector('.cart span').textContent = productNumbers
+          } 
 
-      function cartNumbers (data){ 
-      
-      let productNumbers = localStorage.getItem('cartNumbers')
+          }
 
-      productNumbers = parseInt(productNumbers)
-      
-      if (productNumbers){
-        localStorage.setItem('cartNumbers' , productNumbers + 1)
-        document.querySelector('.cart span').textContent = productNumbers + 1
-      }else{
-        localStorage.setItem('cartNumbers', 1)
-        document.querySelector('.cart span').textContent = 1
-      }
-      
+          function cartNumbers (data){ 
+          
+          let productNumbers = localStorage.getItem('cartNumbers')
 
-      
-      }
-      // onLoadCartNumbers()
+          productNumbers = parseInt(productNumbers)
+          
+          if (productNumbers){
+            localStorage.setItem('cartNumbers' , productNumbers + 1)
+            document.querySelector('.cart span').textContent = productNumbers + 1
+          }else{
+            localStorage.setItem('cartNumbers', 1)
+            document.querySelector('.cart span').textContent = 1
+          }
+          
+
+          
+          }
+        onLoadCartNumbers()
       // cartNumbers()
 
 
-
+// *********************** counter inCart ********************************
 // ***********************set local storage ******************************
-          
-        const addToCartButton = document.getElementsByClassName('addToCartBtn');
-        // console.log(addToCartButton) 
-        if(localStorage.getItem('cartId') == null){
-          localStorage.setItem('cartId', '[]')  }
+         
+          let galOursStr =JSON.stringify(galOurs)
+         
+          // console.log(addToCartButton) 
+          // for (var i = 0; i < addToCartButton.length; i++){
+          if(localStorage.getItem('cartId')){ 
+          console.log('Panier Ok')
+          }
+         
           else{ 
-          for (var i = 0; i < addToCartButton.length; i++){ 
-          addToCartButton[i].addEventListener('click', (e) => (
-          localStorage.setItem('cartId', galOursStr) ))} }
-         
+            let init = []
+            localStorage.setItem('cartId', JSON.stringify(init)) 
+            console.log('création du panier')
+           }
+          var OP  = JSON.parse(localStorage.getItem('cartId'))
+          function addCart(){ 
+          
+        
+          const addToCartButton = document.getElementById('addCart')
 
-       
+          addToCartButton.addEventListener('click', async function() { 
+          OP.push(galOursStr)
+          localStorage.setItem('cartId', OP)
+          alert('Added to Storage')
+          location.reload()
         
-       
-        // console.log(e), 
-       
-        
-         
-         
-        //  ,alert('Added to Storage')
-                
-    // **************************************************************
+               
+        })
+     
+      } 
+      addCart()
+               
+// **************************fin set local storage ************************************
 
 // ******************get local storage ****************************************
     
     
-    const displayToCart = document.getElementsByClassName('addToCart');
+    // const displayToCart = document.getElementsByClassName('addToCart');
     // console.log(displayToCart) 
-    for (var i = 0; i < displayToCart.length; i++){
+    // for (var i = 0; i < displayToCart.length; i++){
     
-    displayToCart[i].addEventListener('click', () => (
-    console.log(displayToCart),
-    localStorage.getItem('cartId', galOursStr)
+    // displayToCart[i].addEventListener('click', () => (
+    // console.log(displayToCart),
+    // localStorage.getItem('cartId', galOursStr)
 
  
  
-    // , alert('Added to Cart')
+    // // , alert('Added to Cart')
 
 
-     ) )  
-        var OP  = JSON.parse(localStorage.getItem('cartId', galOursStr))
-        console.log(OP)
+    //  ) )  
+        // var OP  = JSON.parse(localStorage.getItem('cartId', galOursStr))
+        // console.log(OP)
+        
         
       
          
           
           
-          for (var i = 0; i < localStorage.key.length; i++){ 
+          for (var i = 0; i < 1; i++){ 
           document.querySelector('.container-ours').innerHTML += 
           `
           <table class="table table-image">
@@ -278,7 +272,8 @@ fetch ('http://localhost:3000/api/teddies')
             </tbody>
           </table>
           `
-            }  }
+            }  
+          // }
 
             
 
