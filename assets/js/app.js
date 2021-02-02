@@ -354,7 +354,7 @@
         function displayCart() {
         let cartItems = localStorage.getItem('productsInCart');
         cartItems = JSON.parse(cartItems);
-        console.log(cartItems);
+        // console.log(cartItems);
         let productContainer = document.querySelector('.container-ours');
 
      
