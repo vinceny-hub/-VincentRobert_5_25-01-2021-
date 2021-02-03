@@ -306,10 +306,10 @@ fetch ('http://localhost:3000/api/teddies')
 
 let productContainer = document.querySelector('.container-ours')
 productContainer.innerHTML = ``
-// OP.forEach((data) => { 
+OP.forEach((galOurs) => { 
 
 // newDiv.appendChild(productContainer)
-Object(OP).map(data => {
+// Object(OP).map(data => {
 let newDiv = document.createElement ('div')
 // OP.map(data => {
 
