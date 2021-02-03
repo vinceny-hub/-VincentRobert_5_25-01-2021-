@@ -710,7 +710,7 @@ fetch ('http://localhost:3000/api/teddies')
   let dataStr = JSON.stringify(data)
   data = JSON.parse(dataStr)
 
-  console.log(data[0].name)
+  
 
 // var newDiv = document.createElement('div')
 // let productContainer = document.querySelector('.container-ours')
@@ -799,42 +799,24 @@ fetch ('http://localhost:3000/api/teddies')
 //  getNounours()
                 
 
-// var newDiv = document.createElement('div')
+var newDiv = document.createElement('div')
 
 let productContainer = document.querySelector('.container-ours')
-let tableData = ``
+let tableData = ''
 tableData += ``
-// `<table class="table table-image">
-// <thead class="thead-dark">
-//   <tr class="text-center">
-  
-      
-//       <th class="w-25"></th>
-      
-//       <th class="w-25"><p class="h4">Name</p></th>
-//       <th class="w-25"><p class="h4">Price</p></th>
-//       <th class="w-25"><p class="h4">To Pay</p></th>
-//       <th class="w-25"><p class="h4">Remove</p></th>
-//      <!-- <th class="w-25"></th>-->
-  
-//           <!-- <th class="w-25"></th>-->
-  
-//   </tr>
-// </thead>
-// <tbody class="container-ours">
-// </tbody>
-// </table>`
-
-  JSON.parse(localStorage.getItem('cartId')).map(data =>{ 
-  tableData +=
+  OP.forEach(function (i,item, index, array) {
+  var iPar = JSON.parse(i)
+ 
+ 
+  tableData += 
   `
 <div>
 <table class="table table-image">
   <thead class="thead-dark">
     <tr class="text-center">
-      <th class w-20><img src=${data.imageUrl} class="img-fluid img-thumbnail w-20"></th>
-      <th class="w-20"><p class"h4">${data.name}</p></th>
-      <th class="w-20"><p class"h4">${data.price}</p></th>
+      <th class w-20><img src=${iPar.imageUrl} class="img-fluid img-thumbnail w-20"></th>
+      <th class="w-20"><p class"h4">${iPar.name}</p></th>
+      <th class="w-20"><p class"h4">${iPar.price}</p></th>
       <td class="w-20"><button class="btn btn-info">Pay</button>
       <td class="w-20"><button class="btn btn-info">Remove</button>
       <!--<th class="w-10"></th>-->
@@ -848,8 +830,7 @@ tableData += ``
 `
 
 })
-console.log(data[0])
-productContainer.innerHTML = tableData
+productContainer.innerHTML =tableData
 })
 // // productContainer.innerHTML = ``
 // OP.forEach((data) => { 
