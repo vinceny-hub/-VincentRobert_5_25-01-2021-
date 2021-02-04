@@ -1,3 +1,5 @@
+
+
 fetch ('http://localhost:3000/api/teddies')
 .then((res) => res.json())
 .then((data) => {
@@ -23,3 +25,17 @@ for (var i = 0; i < data.length; i++){
       
      
       }})
+
+      // *********************** Init local storage ******************************
+
+      if(localStorage.getItem('cartId')){ 
+      console.log('Panier Ok')
+      }
+
+      else{ 
+      let init = []
+      localStorage.setItem('cartId', JSON.stringify(init)) 
+      console.log('création du panier')
+      }
+
+    // *********************** Init local storage ******************************

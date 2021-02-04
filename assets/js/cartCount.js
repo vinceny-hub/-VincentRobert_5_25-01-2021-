@@ -9,7 +9,7 @@
 
       for (let i = 0; i < carts.length; i++){
       carts[i].addEventListener('click', ()=> {
-      cartNumbers([i]);
+      cartNumbers(carts[i]);
       } )
       }
 
@@ -21,7 +21,7 @@
         document.querySelector('.cart span').textContent = productNumbers
       } 
       }
-      function cartNumbers (data){ 
+      function cartNumbers (){ 
       let productNumbers = localStorage.getItem('cartNumbers')
 
       productNumbers = parseInt(productNumbers)
@@ -32,9 +32,10 @@
       }else{
         localStorage.setItem('cartNumbers', 1)
         document.querySelector('.cart span').textContent = 1
-        
+
       }
       }
       onLoadCartNumbers()
+      
       // cartNumbers()
       } )

@@ -121,7 +121,7 @@
 
 // *********************** counter inCart ********************************
 
-// ***********************set local storage ******************************
+// *********************** Init local storage ******************************
 
         if(localStorage.getItem('cartId')){ 
             console.log('Panier Ok')
@@ -132,6 +132,8 @@
           localStorage.setItem('cartId', JSON.stringify(init)) 
           console.log('création du panier')
         }
+
+// ***********************set local storage ******************************        
         
         var OP  = JSON.parse(localStorage.getItem('cartId'))
 
@@ -152,7 +154,7 @@
         ) }   
 
         addCart()
-
+       
         } }  
         } )   
         
