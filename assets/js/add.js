@@ -27,7 +27,7 @@
     `
     
     
-             
+    <!--  
           <div class="product">
           <div class="row">
             <div class="col-md-4">
@@ -40,12 +40,12 @@
                     <div class="product-name">
                       <a href="#">${iPar.name}</a>
 
-                    <!--  <div class="product-info">
+                  <div class="product-info">
 
                         <div>Display: <span class="value">5 inch</span></div>
                         <div>RAM: <span class="value">4GB</span></div>
                         <div>Memory: <span class="value">32GB</span></div>
-                        </div>-->
+                        </div>
 
                     </div>
 
@@ -72,9 +72,9 @@
     </div>
   </div>
 </section>
-</main>
+</main> -->
         
-     <!--   
+ 
 
  <div>
       <table class="table table-image">
@@ -84,13 +84,13 @@
           <th class="w-20"><p class"h4">${iPar.name}</p></th>
           <th class="w-20"><p class"h4">${iPar.price}</p></th>
           <th class="w-20"><button class="btn btn-info">Pay</button>
-          <th class="w-20"><button class="btn btn-info remove">Remove</button>
+          <th class="w-20"><button class="btn btn-info removed">Remove</button>
         </tr>
       </thead>
           <tbody class="container-ours">
           </tbody>
     </table>
-    </div>-->
+    </div>
 
     
     
@@ -102,17 +102,84 @@
     
   
     
-    // const removeButton = document.querySelector('.remove')
-    // removeButton.addEventListener('click', async function() { 
-    // console.log(removeButton)
+    
     // localStorage.clear(i)
     // location.reload()
     
 
-    // })
     })
+    let removeButton = document.getElementsByClassName("removed")
+    for (let i = 0; i < removeButton.length; i++) {
+        const element = data[i];
+        document.getElementsByClassName("removed")[i].addEventListener('click', async function() { 
+        console.log()
+        alert('clicked')
+        localStorage.clear(i)
+       location.reload()
+        Delete()
+    })
+
+
+    // var iPar = JSON.parse(i)
+    // function removeItemOurson(e){ 
+    //     let items =[]
+    //     JSON.parse(loh)
+    // for (let j = 0; j <iPar.length; j++) {
+    //     if(iPar[i] === i){ 
+    //         OP.splice(i,1)
+    //         return
+    //     }
+    //      }
+    //       }
+
+        function Delete(pid){
+
+        let OP = JSON.parse(localStorage.getItem('cartId'))
+        let newCart = OP.filter((iPar) => iPar._id != pid)
+        localStorage.setItem('cartId', JSON.stringify(newCart))
+        updateOP()
     }
-    ) }
+//         let cartId = []
+//         var iPar = JSON.parse(i)
+//         JSON.parse(localStorage.getItem('cartId')).map(data=>{
+//             console.log()
+//             if(data.index != iPar.index)[0]
+//             cartId.push(data)
+//         })
+    
+//     localStorage.setItem('cartId', JSON.stringify(cartId))
+//     location.reload()
+// }
+        
+
+  
+  
+    // console.log()
+    // localStorage.clear(i)
+    // location.reload()
+    // let removeButton = document.getElementsByClassName("removed")
+    // removeButton.addEventListener('click', async function(e) { 
+    // console.log(e)
+
+    // })
+    
+//     let removeButton = document.getElementsByClassName("removed")
+//     removeButton.addEventListener('click', async function ReM(alert('clicked'))
+ 
+//  })
+    
+    
+    // removeButton.addEventListener('click', async function() { 
+    //     console.log()
+        // localStorage.clear(i)
+        // location.reload()
+    }
+   
+      
+
+    }) }
+    
+
 
 // *********************** Init local storage ******************************
 
