@@ -1,7 +1,7 @@
-    if(localStorage.getItem('cartId') === null){ 
-    location.href ='index.html'
-    alert("Panier vide redirection vers la page d'accueil")
-    }else{ 
+    // if(localStorage.getItem('cartId') === null){ 
+    // location.href ='index.html'
+    // alert("Panier vide redirection vers la page d'accueil")
+    // }else{ 
 
     let OP = JSON.parse(localStorage.getItem('cartId'))
     fetch ('http://localhost:3000/api/teddies')
@@ -29,7 +29,7 @@
     `
     
     
-    <!--  
+    
           <div class="product">
           <div class="row">
             <div class="col-md-4">
@@ -60,7 +60,7 @@
                     <span class="h5"> ₽ ${iPar.price}</span>
                     </div>
                     <div class="col-md-3 price">
-                    <button class="btn btn-info remove">Remove</button>
+                    <button class="btn btn-info removed" id="${itemPar}">Remove</button>
                     </div
                     </div>
                   </div>
@@ -74,10 +74,10 @@
     </div>
   </div>
 </section>
-</main> -->
+</main> 
         
  
-
+ <!--
  <div>
       <table class="table table-image">
       <thead class="thead-dark">
@@ -93,7 +93,7 @@
           </tbody>
     </table>
     </div>
-
+    -->
     
     
 
@@ -174,6 +174,7 @@
           console.log(OP)
           console.log(itemParIndex)
           console.log(removeO)
+          location.reload()
           // localStorage.removeItem('cartId', itemParIndex))
           }else{
             alert('!=')
@@ -185,13 +186,15 @@
           // )}
     }
      }
+    
+   
 
-      function removeLocalStorage(e){ 
-      let OP = JSON.parse(localStorage.getItem('cartId')) || []
-      OP.splice(i,1)
-      localStorage.setItem('cartId', JSON.stringify(OP))
-      }
-     }
+    //   function removeLocalStorage(e){ 
+    //   let OP = JSON.parse(localStorage.getItem('cartId')) || []
+    //   OP.splice(i,1)
+    //   localStorage.setItem('cartId', JSON.stringify(OP))
+    //   }
+     
    
     
    
@@ -255,10 +258,11 @@
     
     // })
   //  })  
-     )}
+    //  )}
     //  } )  }
-    
-    )}
+     
+    })})
+  // }
 
 // *********************** Init local storage ******************************
 

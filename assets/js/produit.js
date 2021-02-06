@@ -142,7 +142,10 @@
         const addToCartButton = document.getElementById('addCart')
         
         addToCartButton.addEventListener('click', async function() { 
-               
+        console.log(galOursStr)    
+        if(OP.includes(galOursStr)){
+            alert('alreday in cart')
+        }else{ 
         OP.push(galOursStr)
         
         localStorage.setItem('cartId', JSON.stringify(OP))
@@ -150,7 +153,7 @@
         location.reload()
             
         } 
-
+    }
         ) }   
 
         addCart()
