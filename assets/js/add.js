@@ -148,8 +148,8 @@
      var iPar = JSON.parse(i)
      var itemPar = JSON.parse(item)
     let removeButton = document.querySelectorAll(".removed")
-    for (let j = 0; j < removeButton.length; j++) {
-    removeButton[j].addEventListener('click', async function(e) { 
+    // for (let j = 0; j < removeButton.length; j++) {
+    removeButton[item].addEventListener('click', async function(e) { 
     // console.log(e.target)
     removeItem(e)
     // deleteItemFromLocalStorage()
@@ -159,7 +159,7 @@
       //  location.reload()
         // Delete()
     })
-     }
+     
 
      function removeItem(e){
       //  console.log(iPar)
