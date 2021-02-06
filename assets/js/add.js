@@ -23,6 +23,8 @@
     tableData += ``
     OP.forEach(function (i,item, index, array) {
     var iPar = JSON.parse(i)
+    var itemPar = JSON.parse(item)
+    
     tableData += 
     `
     
@@ -84,7 +86,7 @@
           <th class="w-20"><p class"h4">${iPar.name}</p></th>
           <th class="w-20"><p class"h4">${iPar.price}</p></th>
           <th class="w-20"><button class="btn btn-info">Pay</button>
-          <th class="w-20"><button class="btn btn-info removed">Remove</button>
+          <th class="w-20"><button class="btn btn-info removed" id="${itemPar}">Remove ${itemPar}</button>
         </tr>
       </thead>
           <tbody class="container-ours">
@@ -108,17 +110,91 @@
     
 
     })
-    let removeButton = document.getElementsByClassName("removed")
-    for (let i = 0; i < removeButton.length; i++) {
-        const element = data[i];
-        document.getElementsByClassName("removed")[i].addEventListener('click', async function() { 
-        console.log()
-        alert('clicked')
-        localStorage.clear(i)
-       location.reload()
-        Delete()
-    })
+    //  function deleteItemFromLocalStorage(id){
+    //   let items = JSON.parse(localStorage.getItem('cartId'))
+    //   items.forEach(function(item, index){ 
+    //   if(id === item.id){
+    //     items.splice(index,1)
+    //   }
+    //     }
+    //   )
+    // localStorage.setItem('cartId', JSON.stringify(items))
+    // }
+    // OP.forEach(function (i,item, index, array) {
+    // var iPar = JSON.parse(i)
+    // let removeButton = document.querySelectorAll(".removed")
+    // for (let j = 0; j < removeButton.lenght; j++) {
+    
+   
+    // // removeButton.getElementsById('${iPar._id}').onclick = function() {functionDelete()}
+    // // function functionDelete(){
+    // removeButton[j].addEventListener('click', async function(e) { 
+    // console.log(e.target)
+   
+      
+    
+    //  } 
+      
+    // )
+    
+   
+    
+   
 
+     
+
+
+     OP.forEach(function (i,item, index, array) {
+     var iPar = JSON.parse(i)
+     var itemPar = JSON.parse(item)
+    let removeButton = document.querySelectorAll(".removed")
+    for (let j = 0; j < removeButton.length; j++) {
+    removeButton[j].addEventListener('click', async function(e) { 
+    // console.log(e.target)
+    removeItem(e)
+    // deleteItemFromLocalStorage()
+    // console.log(iPar._id)
+    // alert('clicked',  )
+        // localStorage.clear(i)
+      //  location.reload()
+        // Delete()
+    })
+     }
+
+     function removeItem(e){
+      //  console.log(iPar)
+      if (e.target.classList.contains('removed')){
+        if(confirm('are u sure to want to delete ?')){
+        console.log(e.target)
+        if(e.target.id == itemPar){
+          alert('=')
+          let itemParIndex = e.target.id
+          const removeO = OP.splice(itemParIndex,1)
+          localStorage.setItem('cartId', JSON.stringify(OP))
+          console.log(OP)
+          console.log(itemParIndex)
+          console.log(removeO)
+          // localStorage.removeItem('cartId', itemParIndex))
+          }else{
+            alert('!=')
+          }
+          
+        
+    
+       }
+          // )}
+    }
+     }
+
+      function removeLocalStorage(e){ 
+      let OP = JSON.parse(localStorage.getItem('cartId')) || []
+      OP.splice(i,1)
+      localStorage.setItem('cartId', JSON.stringify(OP))
+      }
+     }
+   
+    
+   
 
     // var iPar = JSON.parse(i)
     // function removeItemOurson(e){ 
@@ -132,13 +208,13 @@
     //      }
     //       }
 
-        function Delete(pid){
+    //     function Delete(pid){
 
-        let OP = JSON.parse(localStorage.getItem('cartId'))
-        let newCart = OP.filter((iPar) => iPar._id != pid)
-        localStorage.setItem('cartId', JSON.stringify(newCart))
-        updateOP()
-    }
+    //     let OP = JSON.parse(localStorage.getItem('cartId'))
+    //     let newCart = OP.filter((iPar) => iPar._id != pid)
+    //     localStorage.setItem('cartId', JSON.stringify(newCart))
+    //     updateOP()
+    // }
 //         let cartId = []
 //         var iPar = JSON.parse(i)
 //         JSON.parse(localStorage.getItem('cartId')).map(data=>{
@@ -173,13 +249,16 @@
     //     console.log()
         // localStorage.clear(i)
         // location.reload()
-    }
-   
-      
-
-    }) }
     
-
+   
+   
+    
+    // })
+  //  })  
+     )}
+    //  } )  }
+    
+    )}
 
 // *********************** Init local storage ******************************
 
