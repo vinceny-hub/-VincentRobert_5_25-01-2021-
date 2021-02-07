@@ -1,7 +1,7 @@
-    // if(localStorage.getItem('cartId') === null){ 
-    // location.href ='index.html'
-    // alert("Panier vide redirection vers la page d'accueil")
-    // }else{ 
+    if(localStorage.getItem('cartId') == "[]"){ 
+    location.href ='index.html'
+    alert("Panier vide redirection vers la page d'accueil")
+    }else{ 
 
     let OP = JSON.parse(localStorage.getItem('cartId'))
     fetch ('http://localhost:3000/api/teddies')
@@ -262,7 +262,7 @@
     //  } )  }
      
     })})
-  // }
+  }
 
 // *********************** Init local storage ******************************
 
