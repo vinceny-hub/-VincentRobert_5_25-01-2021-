@@ -11,13 +11,14 @@
     .then((data) => {
     localStorage.setItem('cartId', JSON.stringify(OP));                            
     
-    console.log(OP)
+    // console.log(OP)
 
     let init = []
     // else{ 
        
     let dataStr = JSON.stringify(data)
     data = JSON.parse(dataStr)
+
     productNumbers = OP.length
     document.querySelector('.cart span').textContent = productNumbers
       
@@ -58,7 +59,7 @@
       
 //       cartNumbers()
 
-      console.log(OP.length)
+      // console.log(OP.length)
 
 
 

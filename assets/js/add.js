@@ -1,5 +1,6 @@
     if(localStorage.getItem('cartId') == "[]"){ 
     location.href ='index.html'
+    localStorage.clear('quantityOurs')
     alert("Panier vide redirection vers la page d'accueil")
     }else{ 
 
@@ -24,7 +25,7 @@
     OP.forEach(function (i,item, index, array) {
     var iPar = JSON.parse(i)
     var itemPar = JSON.parse(item)
-    
+
     tableData += 
     `
     
@@ -32,34 +33,41 @@
     
           <div class="product">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
               <img class="img-fluid mx-auto d-block image" src="${iPar.imageUrl}">
             </div>
             <div class="col-md-8">
               <div class="info">
                 <div class="row">
-                  <div class="col-md-5 product-name">
+                  <div class="col-md-4 product h5">
                     <div class="product-name">
                       <a href="#">${iPar.name}</a>
 
                   <div class="product-info">
 
-                        <div>Display: <span class="value">5 inch</span></div>
-                        <div>RAM: <span class="value">4GB</span></div>
-                        <div>Memory: <span class="value">32GB</span></div>
+                        <div><span class="value"></span></div>
+                        
+                        <div><span class="value"></span></div>
+                        
+                        <div><span class="value"></span></div>
                         </div>
 
                     </div>
 
                   </div>
+
+                 
                   <div class="col-md-3 quantity">
-                    <label for="quantity">Quantity:</label>
-                    <input id="quantity" type="number" value ="1" class="form-control quantity-input">
-                  </div>
+                  <label for="quantity">Quantity :</label><div class="row "><button class="btn btn-info" id="minus">-</button> <input id="quantity" type="number" value ="2" class="col-md-4 form-control quantity-input"><button class="btn btn-info" id="plus">+</button> </label>
+                   
+                
+                   
+                  </div></div>
+                
                   <div class="col-md-3 price">
-                    <span class="h5"> ₽ ${iPar.price}</span>
+                    <span class="h5 nombreOurs"> ₽ ${iPar.price}</span>
                     </div>
-                    <div class="col-md-3 price">
+                    <div class="col-md-1 price">
                     <button class="btn btn-info removed" id="${itemPar}">Remove</button>
                     </div
                     </div>
@@ -99,9 +107,9 @@
 
 
     `
-   
-    productContainer.innerHTML = tableData
     
+    productContainer.innerHTML = tableData
+  
   
     
     
@@ -185,9 +193,51 @@
        }
           // )}
     }
-     }
+  }
+    if(localStorage.getItem('quantityOurs')){ 
+    console.log('ours dans panier')
+  }
+
+    else{ 
+    let initQuantityOurs = []
+    localStorage.setItem('quantityOurs', JSON.stringify(initQuantityOurs)) 
+    console.log('panier ours')
+  }
+
+    //  function saveQuantityOurs(){ 
+     let quantityOurs = document.querySelector('div.quantity input[value]').value
+     console.log(quantityOurs.value)
+     let quantityAlreadySet = JSON.parse(localStorage.getItem('quantityOurs'))
+     quantityAlreadySet.push(quantityOurs)
+     localStorage.setItem('quantityOurs', JSON.stringify(quantityAlreadySet))
+
+    //  quantityOurs.addEventListener('input', updateValue) = localStorage.setItem('quantityOurs')
+    //  console.log(quantityOurs.value)
     
+    //  let totOurs = document.getElementsByClassName('quantity-input')
+    //  console.log(totOurs)
+      //  quantityOurs.addEventListener('input', updateValue)
+    
+    //  function updateValue(e) {
+    //  totOurs.textContent = e.target.value;
+     
+     
+    //  saveQuantityOurs()
+    
+    
+    function incrementTotal() {
    
+    let nombreArticle = document.querySelector("div.quantity input").value
+    console.log (nombreArticle)
+     let totalRow =(nombreArticle * iPar.price)
+
+    console.log(totalRow)
+  }
+  incrementTotal()
+    // <div class="col-md-3 quantity">
+    //                 <label for="quantity">Quantity:</label>
+    //                 <input id="quantity" type="number" value ="1" class="form-control quantity-input">
+    //               </div>
 
     //   function removeLocalStorage(e){ 
     //   let OP = JSON.parse(localStorage.getItem('cartId')) || []
