@@ -58,17 +58,22 @@
 
                  
                   <div class="col-md-3 quantity">
-                  <label for="quantity">Quantity :</label><div class="row "><button class="btn btn-info" id="minus">-</button> <input id="quantity" type="number" value ="2" class="col-md-4 form-control quantity-input"><button class="btn btn-info" id="plus">+</button> </label>
+                  <label for="quantity">Quantity :</label>
+                  <div class="row "><button class="btn btn-info" id="minus">-</button> 
+                  <!--<input id="quantity" type="number" value ="2" class="col-md-4 form-control quantity-input">-->
+                  <div  id="quantity" type="number" class="col-md-4 form-control text-center quantity-input cart"><span> 0 </span></div>
+                  <button class="btn btn-info" id="plus">+</button> 
                    
                 
                    
-                  </div></div>
+                  </div>
+                </div>
                 
                   <div class="col-md-3 price">
                     <span class="h5 nombreOurs"> ₽ ${iPar.price}</span>
                     </div>
                     <div class="col-md-1 price">
-                    <button class="btn btn-info removed" id="${itemPar}">Remove</button>
+                    <button class="btn btn-info removed" id="${itemPar}">Supprimer</button>
                     </div
                     </div>
                   </div>
@@ -205,11 +210,11 @@
   }
 
     //  function saveQuantityOurs(){ 
-     let quantityOurs = document.querySelector('div.quantity input[value]').value
-     console.log(quantityOurs.value)
-     let quantityAlreadySet = JSON.parse(localStorage.getItem('quantityOurs'))
-     quantityAlreadySet.push(quantityOurs)
-     localStorage.setItem('quantityOurs', JSON.stringify(quantityAlreadySet))
+    //  let quantityOurs = document.querySelector('div.quantity input[value]').value
+    //  console.log(quantityOurs.value)
+    //  let quantityAlreadySet = JSON.parse(localStorage.getItem('quantityOurs'))
+    //  quantityAlreadySet.push(quantityOurs)
+    //  localStorage.setItem('quantityOurs', JSON.stringify(quantityAlreadySet))
 
     //  quantityOurs.addEventListener('input', updateValue) = localStorage.setItem('quantityOurs')
     //  console.log(quantityOurs.value)
@@ -225,15 +230,15 @@
     //  saveQuantityOurs()
     
     
-    function incrementTotal() {
+  //   function incrementTotal() {
    
-    let nombreArticle = document.querySelector("div.quantity input").value
-    console.log (nombreArticle)
-     let totalRow =(nombreArticle * iPar.price)
+  //   let nombreArticle = document.querySelector("div.quantity input").value
+  //   console.log (nombreArticle)
+  //    let totalRow =(nombreArticle * iPar.price)
 
-    console.log(totalRow)
-  }
-  incrementTotal()
+  //   console.log(totalRow)
+  // }
+  // incrementTotal()
     // <div class="col-md-3 quantity">
     //                 <label for="quantity">Quantity:</label>
     //                 <input id="quantity" type="number" value ="1" class="form-control quantity-input">

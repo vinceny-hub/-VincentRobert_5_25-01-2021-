@@ -144,7 +144,7 @@
         addToCartButton.addEventListener('click', async function() { 
         console.log(galOursStr)    
         if(OP.includes(galOursStr)){
-            alert('alreday in cart')
+            alert('already in cart')
         }else{ 
         OP.push(galOursStr)
         
