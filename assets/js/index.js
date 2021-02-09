@@ -17,7 +17,7 @@ for (var i = 0; i < data.length; i++){
             </p>
             <span class="font-weight-bold lead">₽ ${data[i].price}</span>
             <p class="card-text font-italic font-weight-bold">${data[i].description}</p>
-            <button class="btn btn-info shop-item-button">Ajouter au panier</button>
+         <!--   <button class="btn btn-info shop-item-button">Ajouter au panier</button>-->
           </div>
         </div>
       </div>

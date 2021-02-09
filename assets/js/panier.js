@@ -12,9 +12,6 @@
     localStorage.setItem('cartId', JSON.stringify(OP));                            
     
     console.log(OP)
-
-    let init = []
-    // else{ 
        
     let dataStr = JSON.stringify(data)
     data = JSON.parse(dataStr)
@@ -25,13 +22,31 @@
     OP.forEach(function (i,item, index, array) {
     var iPar = JSON.parse(i)
     var itemPar = JSON.parse(item)
+    
+    
+    
+    let idDecrementation = itemPar - 1000
+    let idIncrementation = itemPar + 1000
+    let idInput = itemPar + 10000
+    let idPrice = itemPar + 100000
+    var totOurson = iPar.price
+    
+    
+    
+    
+  
+    
+// let nombreOurs = document.querySelector('.quantity-input').value
+// plus.addEventListener('click', (e)=> { 
+    
+
+
+// })
 
     tableData += 
-    `
-    
-    
-    
-          <div class="product">
+      `
+      <section>
+        <div class="product">
           <div class="row">
             <div class="col-md-3">
               <img class="img-fluid mx-auto d-block image" src="${iPar.imageUrl}">
@@ -43,331 +58,295 @@
                     <div class="product-name">
                       <a href="#">${iPar.name}</a>
 
-                  <div class="product-info">
-
-                        <div><span class="value"></span></div>
-                        
-                        <div><span class="value"></span></div>
-                        
-                        <div><span class="value"></span></div>
-                        </div>
-
+                        <div class="product-info">
+                          <div><span class="value"></span></div>
+                          <div><span class="value"></span></div>
+                          <div><span class="value"></span></div>
+                      </div>
                     </div>
-
                   </div>
 
-                 
                   <div class="col-md-3 quantity">
-                  <label for="quantity">Quantity :</label>
-                  <div class="row "><button class="btn btn-info minusBtn" id="${itemPar}">-</button> 
-                  <!--<input id="quantity" type="number" value ="2" class="col-md-4 form-control quantity-input">-->
-                  <div  id="quantity" type="number" class="col-md-4 form-control text-center quantity-input cart"><span> 1 </span></div>
-                  <button class="btn btn-info plusBtn id="${itemPar}">+</button> 
-                   
-                
-                   
-                  </div>
-                </div>
-                
-                  <div class="col-md-3 price">
-                    <span class="h5 nombreOurs"> ₽ ${iPar.price}</span>
+                    <label for="quantity">Quantity :</label>
+                    <div class="row ">
+                      <button class="btn btn-info dec button" id="${idDecrementation}">-</button> 
+                    <input id="${idInput}" type="text" class="col-md-4 form-control text-center quantity-input cart" min="0" value="1"><span></span>
+                         
+                    </input>
+                      <button class="btn btn-info  inc button" id="${idIncrementation}">+</button> 
+                      <span class="" type="text" id="${idPrice}" value="1"> ${iPar.price} </span>
                     </div>
-                    <div class="col-md-1 price">
+                  </div>
+                <!--  <div class="col-md-3 price">
+                    <div class="h5" id="${idPrice}"></div>
+                  </div>-->
+                  <div class="col-md-1 price">
                     <button class="btn btn-info removed" id="${itemPar}">Supprimer</button>
-                    </div
-                    </div>
-                  </div>
+                  </div
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
-      </div> 
-    </div>
-  </div>
-</section>
-</main> 
-        
- 
- <!--
- <div>
-      <table class="table table-image">
-      <thead class="thead-dark">
-        <tr class="text-center">
-          <th class w-20><img src=${iPar.imageUrl} class="img-fluid img-thumbnail w-20"></th>
-          <th class="w-20"><p class"h4">${iPar.name}</p></th>
-          <th class="w-20"><p class"h4">${iPar.price}</p></th>
-          <th class="w-20"><button class="btn btn-info">Pay</button>
-          <th class="w-20"><button class="btn btn-info removed" id="${itemPar}">Remove ${itemPar}</button>
-        </tr>
-      </thead>
-          <tbody class="container-ours">
-          </tbody>
-    </table>
-    </div>
-    -->
-    
-    
-
-
-    `
-    
+      </section>
+       `
+         
+     var tot = document.getElementById("idPrice")
+     console.log(tot)
     productContainer.innerHTML = tableData
   
-  
-    
-    
-    // localStorage.clear(i)
-    // location.reload()
-    
-
     })
-    //  function deleteItemFromLocalStorage(id){
-    //   let items = JSON.parse(localStorage.getItem('cartId'))
-    //   items.forEach(function(item, index){ 
-    //   if(id === item.id){
-    //     items.splice(index,1)
-    //   }
-    //     }
-    //   )
-    // localStorage.setItem('cartId', JSON.stringify(items))
-    // }
-    // OP.forEach(function (i,item, index, array) {
-    // var iPar = JSON.parse(i)
-    // let removeButton = document.querySelectorAll(".removed")
-    // for (let j = 0; j < removeButton.lenght; j++) {
     
    
-    // // removeButton.getElementsById('${iPar._id}').onclick = function() {functionDelete()}
-    // // function functionDelete(){
-    // removeButton[j].addEventListener('click', async function(e) { 
-    // console.log(e.target)
-   
-      
-    
-    //  } 
-      
-    // )
-    
-   
-    
-   
-
-     
-
-
-     OP.forEach(function (i,item, index, array) {
-     var iPar = JSON.parse(i)
-     var itemPar = JSON.parse(item)
+    OP.forEach(function (i,item, index, array) {
+    var iPar = JSON.parse(i)
+    var itemPar = JSON.parse(item)
+    // let idPrice = itemPar + 100000
     let removeButton = document.querySelectorAll(".removed")
-    // for (let j = 0; j < removeButton.length; j++) {
+    let minusBtn = document.querySelectorAll(".dec")
+    let plusBtn = document.querySelectorAll(".inc")
+    
+   
     removeButton[item].addEventListener('click', async function(e) { 
-    // console.log(e.target)
+  
     removeItem(e)
-    // deleteItemFromLocalStorage()
-    // console.log(iPar._id)
-    // alert('clicked',  )
-        // localStorage.clear(i)
-      //  location.reload()
-        // Delete()
+   
+   
     })
-     
+     minusBtn[item].addEventListener('click', async function(e) { 
+  
+     decreaseNumber(e)
+    //  decreasePrice(a)
+    }) 
+    
+     plusBtn[item].addEventListener('click', async function(e) { 
+  
+     increaseNumber(e)
+    //  increasePrice(e)
+     }) 
 
      function removeItem(e){
-      //  console.log(iPar)
+  
       if (e.target.classList.contains('removed')){
         if(confirm('are u sure to want to delete ?')){
         console.log(e.target)
-        if(e.target.id == itemPar){
-          alert('=')
-          let itemParIndex = e.target.id
-          const removeO = OP.splice(itemParIndex,1)
-          localStorage.setItem('cartId', JSON.stringify(OP))
-          console.log(OP)
-          console.log(itemParIndex)
-          console.log(removeO)
-          location.reload()
-          // localStorage.removeItem('cartId', itemParIndex))
+          if(e.target.id == itemPar){
+            alert('=')
+            let itemParIndex = e.target.id
+            const removeO = OP.splice(itemParIndex,1)
+            localStorage.setItem('cartId', JSON.stringify(OP))
+            console.log(OP)
+            console.log(itemParIndex)
+            console.log(removeO)
+            location.reload()
           }else{
             alert('!=')
           }
-          
-        
-    
-       }
-          // )}
+        }
+      }
     }
-  }
-  //   if(localStorage.getItem('quantityOurs')){ 
-  //   console.log('ours dans panier')
-  // }
 
-  //   else{ 
-  //   let initQuantityOurs = []
-  //   localStorage.setItem('quantityOurs', JSON.stringify(initQuantityOurs)) 
-  //   console.log('panier ours')
-  // }
   
+  // var decrementationButton = document.getElementsByClassName('dec')
+  // console.log(decrementationButton)
+  // for (var i = 0; i < decrementationButton.length; i++) {
+  // var button = decrementationButton[i]
+  // // console.log(button)
+  // button.addEventListener('click', function(event) {
+  // var buttonClicked = event.target 
+  // // console.log(buttonClicked)
+  // var input = buttonClicked.parentElement.children[1]
+  // // console.log(input)
+  // var inputValue = input.value
+  // // console.log(inputValue)
+  // var newValue = parseInt(inputValue) - 1
+  // // console.log(newValue)
+  // input.value = newValue
 
-    //  function saveQuantityOurs(){ 
-    //  let quantityOurs = document.querySelector('div.quantity input[value]').value
-    //  console.log(quantityOurs.value)
-    //  let quantityAlreadySet = JSON.parse(localStorage.getItem('quantityOurs'))
-    //  quantityAlreadySet.push(quantityOurs)
-    //  localStorage.setItem('quantityOurs', JSON.stringify(quantityAlreadySet))
+  // })
+  //     }
 
-    //  quantityOurs.addEventListener('input', updateValue) = localStorage.setItem('quantityOurs')
-    //  console.log(quantityOurs.value)
+      // var incrementationButton = document.getElementsByClassName('inc')
+      // for (var i = 0; i < incrementationButton.length; i++) {
+      // var button = incrementationButton[i]
+      // // console.log(button)
+      // button.addEventListener('click', function(event) {
+      // var buttonClicked = event.target 
+      // // console.log(buttonClicked)
+      // var input = buttonClicked.parentElement.children[1]
+      // // console.log(input)
+      // var inputValue = input.value
+      // // console.log(inputValue)
+      // var newValue = parseInt(inputValue) + 1
+      // // console.log(newValue)
+      // input.value = newValue
     
-    //  let totOurs = document.getElementsByClassName('quantity-input')
-    //  console.log(totOurs)
-      //  quantityOurs.addEventListener('input', updateValue)
-    
-    //  function updateValue(e) {
-    //  totOurs.textContent = e.target.value;
-     
-     
-    //  saveQuantityOurs()
-    
-    
-  //   function incrementTotal() {
-   
-  //   let nombreArticle = document.querySelector("div.quantity input").value
-  //   console.log (nombreArticle)
-  //    let totalRow =(nombreArticle * iPar.price)
+      // })
+      //     }
 
-  //   console.log(totalRow)
-  // }
-  // incrementTotal()
-    // <div class="col-md-3 quantity">
-    //                 <label for="quantity">Quantity:</label>
-    //                 <input id="quantity" type="number" value ="1" class="form-control quantity-input">
-    //               </div>
-
-    //   function removeLocalStorage(e){ 
-    //   let OP = JSON.parse(localStorage.getItem('cartId')) || []
-    //   OP.splice(i,1)
-    //   localStorage.setItem('cartId', JSON.stringify(OP))
-    //   }
-     
-   
+//   // function getValue() {
     
-   
-
-    // var iPar = JSON.parse(i)
-    // function removeItemOurson(e){ 
-    //     let items =[]
-    //     JSON.parse(loh)
-    // for (let j = 0; j <iPar.length; j++) {
-    //     if(iPar[i] === i){ 
-    //         OP.splice(i,1)
-    //         return
-    //     }
-    //      }
-    //       }
-
-    //     function Delete(pid){
-
-    //     let OP = JSON.parse(localStorage.getItem('cartId'))
-    //     let newCart = OP.filter((iPar) => iPar._id != pid)
-    //     localStorage.setItem('cartId', JSON.stringify(newCart))
-    //     updateOP()
-    // }
-//         let cartId = []
-//         var iPar = JSON.parse(i)
-//         JSON.parse(localStorage.getItem('cartId')).map(data=>{
-//             console.log()
-//             if(data.index != iPar.index)[0]
-//             cartId.push(data)
-//         })
-    
-//     localStorage.setItem('cartId', JSON.stringify(cartId))
-//     location.reload()
+//     function decreaseNumber (e){
+//       if (e.target.classList.contains('minusBtn')){
+//         console.log(e.target)
+//         console.log(itemPar)
+//         // if(e.target.price == iPar.price){
+//     var itemVal = document.querySelector('.quantity-input').value
+//     console.log(itemVal)
+//     // if(itemVal <= 0){
+//     //   itemVal = 0
+//     // }else{
+//     itemVal.value = parseInt(itemVal.value) - 1  
+//     console.log(itemVal.value)
+//     // }
+//   }
 // }
-        
 
-  
-  
-    // console.log()
-    // localStorage.clear(i)
-    // location.reload()
-    // let removeButton = document.getElementsByClassName("removed")
-    // removeButton.addEventListener('click', async function(e) { 
-    // console.log(e)
+    function increaseNumber (e){
+    if (e.target.classList.contains('inc')){
+    // console.log(e.target)
 
-    // })
-    
-//     let removeButton = document.getElementsByClassName("removed")
-//     removeButton.addEventListener('click', async function ReM(alert('clicked'))
+    var input = e.target.parentElement.children[1]
+    console.log(input)
+    var inputValue = input.value
+    console.log(inputValue)
+    var newValue = parseInt(inputValue) + 1
+    console.log(newValue)
+    input.value = newValue
+  
+
+
+      // function increasePrice (e){
+      // if (e.target.classList.contains('inc')){
+      // console.log(e.target)
+     
+      var input1 = e.target.parentElement.children[4]
+      console.log(input1)
+      var input1Value = input1.textContent
+      console.log(input1Value)
+      var newTotOurson = parseInt(input1Value)*newValue
+      console.log(newTotOurson)
+      input1.textContent = newTotOurson
+      
+      
+      // var newValue = parseInt(inputValue) + 1
+      // console.log(newValue)
+      // input.value = newValue
+  
+    // let totOurson = iPar.price*newValue
+    // console.log(totOurson)
+    // document.querySelector('div.price span').innerHTML.documentGetElementById('idPrice') = totOurson
+  // } 
+  // }
+}
+  // console.log(idPrice)
  
-//  })
-    
-    
-    // removeButton.addEventListener('click', async function() { 
-    //     console.log()
-        // localStorage.clear(i)
-        // location.reload()
-    
-   
-   
-    
-    // })
-  //  })  
-    //  )}
-    //  } )  }
-
-
-let plus = document.getElementById(itemPar)
-console.log(itemPar)
-// for (let i = 0; i < 5; i++){
-plus.addEventListener('click', (e)=> {
-console.log(e)
-cartNumbers()
-} )
-// }
-
-
-function onLoadCartNumbers() {
-
-let plusOurs = localStorage.getItem('plusOurs')
-
-if(plusOurs){
-  document.querySelector('.cart span').textContent = plusOurs
-} 
-
-}
-
-function cartNumbers (){ 
-console.log('Le nombre de nounours est : ')
-let plusOurs = localStorage.getItem('cartNumbers')
-
-plusOurs = parseInt(plusOurs)
-
-if (plusOurs){
-  localStorage.setItem('plusOurs' , plusOurs + 1)
-  document.querySelector('.cart span').textContent = plusOurs + 1
-}else{
-  localStorage.setItem('plusOurs', 1)
-  document.querySelector('.cart span').textContent = 1
-}
+  
+ }
 
 
 
-}
-onLoadCartNumbers()
-     
-    })})
+    function decreaseNumber (e){
+    if (e.target.classList.contains('dec')){
+    console.log(e.target)
+       
+    var input = e.target.parentElement.children[1]
+    // console.log(input)
+    var inputValue = input.value
+    if(inputValue <= 0){
+        inputValue = 0
+      }else{
+    // console.log(inputValue)
+    var newValue = parseInt(inputValue) - 1
+    // console.log(newValue)
+    input.value = newValue
+
+      
   }
+//   let totOurson = iPar.price*newValue
+//   console.log(totOurson)
+//   document.querySelector('div.price span').textContent = totOurson
+// // document.querySelector('div.price span').textContent = totOurson
+// // console.log(totOurson)
+    }
 
-// *********************** Init local storage ******************************
+    }
+  
 
-// if(localStorage.getItem('cartId') == null){ 
-// location.href ='index.html'
-// // let init = []
-// // localStorage.setItem('cartId', JSON.stringify(init)) 
-// // console.log('création du panier')
+
+    // if(e.target.price == iPar.price){
+// var itemVal = document.querySelector('.quantity-input').value
+// console.log(itemVal)
+
+// if(itemVal <= 0){
+//   itemVal = 0
+// }else{
+// itemVal.value = parseInt(intemVal.value) + 1  
+
 // }
 
-// *********************** Init local storage ******************************
+
+
+
+//   let step = document.querySelector('.quantity-input').value
+//   let plus =  document.querySelector('.plusBtn')
+//   console.log(plus)
+//   plus.addEventListener('click', (e)=> {
+//   // location.onload()
+//   console.log(e)
+//   console.log(step*iPar.price)
+// // var tot = iPar.price*document.getElementsById('quantity').value
+//   })
+
+
+// var val = document.getElementById('quantity').value
+
+//  }
+
+
+
+
+// let counter = iPar.price
+// let tot = iPar.price*document.querySelector('.div.quantity-input .span')
+// console.log(counter)
+// console.log(val)
+
+// plus.addEventListener('click', (e)=> {
+// console.log(e)
+//   // cartNumbers()
+
+// })
+
+
+
+// function onLoadCartNumbers() {
+
+// let plusOurs = localStorage.getItem('plusOurs')
+
+// if(plusOurs){
+//   document.querySelector('.cart span').textContent = plusOurs
+
+// }}
+
+// function cartNumbers (){ 
+// console.log('Le nom du nounours est :  ', iPar.name)
+// let plusOurs = localStorage.getItem('cartNumbers')
+
+// plusOurs = parseInt(plusOurs)
+
+// if (plusOurs){
+//   localStorage.setItem('plusOurs' , plusOurs + 1)
+//   document.querySelector('.cart span').textContent = plusOurs + 1
+// }else{
+//   localStorage.setItem('plusOurs', 1)
+//   document.querySelector('.cart span').textContent = 1
+
+// }}
+
+// onLoadCartNumbers()
+     
+    })
+  })
+}
+
     

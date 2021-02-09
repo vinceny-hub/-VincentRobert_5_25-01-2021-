@@ -1,3 +1,14 @@
+const validationCommande = {
+  contact: {}, 
+  products: []
+}
+// push données à l'intérieur
+
+
+
+
+
+
 if(localStorage.getItem('cartId') == "[]"){ 
   location.href ='index.html'
   localStorage.clear('quantityOurs')
