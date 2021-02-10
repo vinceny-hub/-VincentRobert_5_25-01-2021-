@@ -11,7 +11,7 @@
     .then((data) => {
     localStorage.setItem('cartId', JSON.stringify(OP));                            
     
-    console.log(OP)
+    // console.log(OP)
        
     let dataStr = JSON.stringify(data)
     data = JSON.parse(dataStr)
@@ -74,12 +74,12 @@
                          
                     </input>
                       <button class="btn btn-info  inc button" id="${idIncrementation}">+</button> 
-                      <span class="" type="text" id="${idPrice}" value="1"> ${iPar.price} </span>
+                    
+                      <span class="col-md-3 price" type="text" id="${idPrice}" value="1"> ${iPar.price} </span>
+                    
                     </div>
                   </div>
-                <!--  <div class="col-md-3 price">
-                    <div class="h5" id="${idPrice}"></div>
-                  </div>-->
+                 
                   <div class="col-md-1 price">
                     <button class="btn btn-info removed" id="${itemPar}">Supprimer</button>
                   </div
@@ -92,7 +92,7 @@
        `
          
      var tot = document.getElementById("idPrice")
-     console.log(tot)
+    //  console.log(tot)
     productContainer.innerHTML = tableData
   
     })
@@ -101,10 +101,13 @@
     OP.forEach(function (i,item, index, array) {
     var iPar = JSON.parse(i)
     var itemPar = JSON.parse(item)
+    console.log(iPar)
+    localStorage.setItem('prix', JSON.stringify(OP))
     // let idPrice = itemPar + 100000
     let removeButton = document.querySelectorAll(".removed")
     let minusBtn = document.querySelectorAll(".dec")
     let plusBtn = document.querySelectorAll(".inc")
+    let totOurson = iPar.price
     
    
     removeButton[item].addEventListener('click', async function(e) { 
@@ -207,27 +210,50 @@
     // console.log(e.target)
 
     var input = e.target.parentElement.children[1]
-    console.log(input)
+    // console.log(input)
     var inputValue = input.value
-    console.log(inputValue)
+    // console.log(inputValue)
     var newValue = parseInt(inputValue) + 1
-    console.log(newValue)
+    // console.log(newValue)
     input.value = newValue
   
 
 
       // function increasePrice (e){
       // if (e.target.classList.contains('inc')){
-      // console.log(e.target)
+      
      
       var input1 = e.target.parentElement.children[4]
-      console.log(input1)
+      // console.log(input1)
       var input1Value = input1.textContent
-      console.log(input1Value)
-      var newTotOurson = parseInt(input1Value)*newValue
-      console.log(newTotOurson)
+      // console.log(input1Value)
+      // console.log(input1.textContent)
+      var newTotOurson = totOurson*newValue
+      // console.log(newTotOurson)
       input1.textContent = newTotOurson
+      iPar.price =  totOurson*newValue 
+      console.log(OP)
+      let prix = JSON.parse(localStorage.getItem('prix', OP))
+         
+      localStorage.setItem('prix', JSON.stringify(OP))
+
+      var arr = Object.keys(prix)
+      console.log(arr)
+      arrPrix = arr.map(function (key) {
+        return{[key] : prix[key]}
+      })
+      OP.push(OP[itemPar])
+      // OP.push(newOP)
+      console.log(arrPrix)
+      console.log(OP[itemPar])
+      console.log(OP)
+    
       
+     
+      
+     
+
+
       
       // var newValue = parseInt(inputValue) + 1
       // console.log(newValue)
@@ -253,13 +279,31 @@
     var input = e.target.parentElement.children[1]
     // console.log(input)
     var inputValue = input.value
-    if(inputValue <= 0){
-        inputValue = 0
+    if(inputValue <= 1){
+        inputValue = 1
       }else{
     // console.log(inputValue)
     var newValue = parseInt(inputValue) - 1
     // console.log(newValue)
     input.value = newValue
+
+    var input1 = e.target.parentElement.children[4]
+    console.log(input1)
+    var input1Value = input1.textContent
+    console.log(input1Value)
+    var newTotOurson = totOurson*newValue
+    console.log(newTotOurson)
+    input1.textContent = newTotOurson
+    iPar.price =  totOurson*newValue 
+    let newOP = JSON.parse(localStorage.getItem('prix', OP))
+    localStorage.setItem('prix', JSON.stringify(iPar.price))
+
+     
+
+      // pushPrice()
+        
+      
+    
 
       
   }
@@ -271,6 +315,8 @@
     }
 
     }
+
+  
   
 
 
