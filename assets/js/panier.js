@@ -233,24 +233,32 @@
       input1.textContent = newTotOurson
       iPar.price =  totOurson*newValue 
       console.log(OP)
+
       let prix = JSON.parse(localStorage.getItem('prix', OP))
+      // OP.forEach(function (i,item, index, array) {
+      //   var iPrixPar = JSON.parse(i)
+      //   var itemPrixPar = JSON.parse(item)
          
-      localStorage.setItem('prix', JSON.stringify(OP))
+      localStorage.setItem('prix', JSON.stringify(iPar))
 
       var arr = Object.keys(prix)
       console.log(arr)
       arrPrix = arr.map(function (key) {
         return{[key] : prix[key]}
       })
-      OP.push(OP[itemPar])
+      // OP.push(prix[itemPar])
       // OP.push(newOP)
       console.log(arrPrix)
       console.log(OP[itemPar])
-      console.log(OP)
+      console.log(iPar._id)
+      // console.log(iParStr)
+      
+      // console.log([itemPrixPar])
     
-      
+      // let newOP = JSON.parse(localStorage.getItem('prix', OP))
+      // localStorage.setItem('prix', JSON.stringify(iPar.price))
      
-      
+    // })
      
 
 
@@ -316,7 +324,7 @@
 
     }
 
-  
+  })
   
 
 
@@ -391,8 +399,155 @@
 
 // onLoadCartNumbers()
      
-    })
-  })
+  
+
+//***********************************   formulaire ************************************************
+// if(localStorage.getItem('formulaire')){ 
+//   console.log('formulaire Ok')
+//   }
+  
+//   else{ 
+//   let init = []
+//   localStorage.setItem('formulaire', JSON.stringify(init))
+  
+//   }
+
+
+const validationCommande = {
+  contact: {
+  firstName:"" ,
+  lastName:"",
+  address:"",
+  city:"",
+  email:""
+}, 
+products: [{_id:"5beaa8bf1c9d440000a57d94"}]
 }
 
-    
+
+validationCommandeStr = JSON.stringify(validationCommande)
+console.log(validationCommandeStr)
+
+
+
+
+const myForm = document.getElementById('myForm')
+const checkout = document.getElementById('checkout')
+myForm.addEventListener('submit', async function(e) { 
+// console.log(checkout)
+
+const firstName = document.getElementById('fname').value
+const lastName = document.getElementById('lname').value
+const address = document.getElementById('address').value
+const city = document.getElementById('city').value
+const email = document.getElementById('email').value
+
+
+
+validationCommande.contact.firstName = firstName
+validationCommande.contact.lastName = lastName
+validationCommande.contact.address = address
+validationCommande.contact.city = city
+validationCommande.contact.email = email
+
+// console.log(validationCommande.contact)
+
+
+
+var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
+// init.push(formulaire)
+localStorage.setItem('formulaire', JSON.stringify(validationCommande))
+formulaireStr =  JSON.stringify(formulaire)
+
+// ***************************************************************************
+
+fetch('http://localhost:3000/api/teddies/order', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization' : 'Access-Control-Allow-Methods'
+  },
+  body: formulaireStr
+
+})
+.then(function(response){
+    return response.json()
+})
+   
+.then(function(data){
+ console.log('post request',data)
+})
+})
+
+
+
+
+
+// let products = []
+// const validationCommande = {
+//   contact: {
+//     firstName:"" ,
+//     lastName:"",
+//     address:"",
+//     city:"",
+//     email:""
+//   }, 
+//   products: [OP]
+ 
+// }
+// console.log(validationCommande.products)
+
+// const myForm = document.getElementById('myForm')
+// const checkout = document.getElementById('checkout')
+// myForm.addEventListener('submit', async function(e) { 
+// console.log(checkout)
+
+// const firstName = document.getElementById('fname').value
+// const lastName = document.getElementById('lname').value
+// const address = document.getElementById('address').value
+// const city = document.getElementById('city').value
+// const email = document.getElementById('email').value
+
+
+
+// validationCommande.contact.firstName = firstName
+// validationCommande.contact.lastName = lastName
+// validationCommande.contact.address = address
+// validationCommande.contact.city = city
+// validationCommande.contact.email = email
+
+// console.log(validationCommande.contact)
+
+
+
+// var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
+// // init.push(formulaire)
+// localStorage.setItem('formulaire', JSON.stringify(validationCommande.contact))
+
+// const formData = new formData(this)
+
+// fetch('http://localhost:3000', {
+//   method: 'POST',
+//   headers: {
+//     'content-type': 'application/json'
+//   },
+//   body: JSON.stringify(formulaire)
+
+// }).then(res => {
+//     return res.json
+// })
+   
+// .then(data => console.log(data)) 
+//  .catch(error => console.log('error'))
+  
+
+
+
+// }
+
+ 
+  // ) 
+
+})
+
+}
