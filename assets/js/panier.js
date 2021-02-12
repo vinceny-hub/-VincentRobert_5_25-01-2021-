@@ -97,7 +97,7 @@
   
     })
 
-    let productsIds = {}
+    
     
     
    
@@ -329,11 +329,11 @@
     }
 
     }
-
+// ************atention
  
-  
+    })
 
-
+/////$$$$$$$$$$$$$$$$$$$$$
     // if(e.target.price == iPar.price){
 // var itemVal = document.querySelector('.quantity-input').value
 // console.log(itemVal)
@@ -408,20 +408,17 @@
   
 
 //***********************************   formulaire ************************************************
-// if(localStorage.getItem('formulaire')){ 
-//   console.log('formulaire Ok')
-//   }
-  
-//   else{ 
-//   let init = []
-//   localStorage.setItem('formulaire', JSON.stringify(init))
-  
-//   }
+
 var ids = JSON.parse(localStorage.getItem('ids'))
-for(i=0; i<= OP.length ; i++){
+
 function product(_id) {
 this._id = _id
-}}
+}
+for( i=0; i<OP.length; i++){
+let products = [{_id : ids}]
+
+
+
 const validationCommande = {
   contact: {
   firstName:"" ,
@@ -431,24 +428,20 @@ const validationCommande = {
   email:""
 }, 
 products: [{
-   _id: ids[0]
+   _id: ids[i],
+   
+   
 }]
 }
-console.log(iPar._id)
-
-// validationCommande.products.push(localStorage.getItem('ids'))
-
-console.log(ids[0])
-idsStr = JSON.stringify(ids)
-console.log(idsStr[0])
-// validationCommande.products.push(new product(ids[0]))
-validationCommande.products.push(new product(ids[1]))
-console.log(iPar)
-console.log(validationCommande.products)
+// mettre à 1 ou -1 pour pouvoir avoir le id dans l'index 0
+for( j=0; j<OP.length; j++){
+  
+validationCommande.products.push(new product(ids[j]))
+ 
+ 
 
 
-// validationCommandeStr = JSON.stringify(validationCommande)
-// console.log(validationCommandeStr)
+
 
 
 
@@ -487,7 +480,7 @@ var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
 // init.push(formulaire)
 localStorage.setItem('formulaire', JSON.stringify(validationCommande))
 formulaireStr = JSON.stringify(formulaire)
-
+ }} 
 fetch('http://localhost:3000/api/teddies/order', {
   method: 'POST',
   headers: {
@@ -503,79 +496,11 @@ fetch('http://localhost:3000/api/teddies/order', {
    
 .then(function(data){
  console.log('post request',data)
-})
-
-
-
-
-
-
-
-// let products = []
-// const validationCommande = {
-//   contact: {
-//     firstName:"" ,
-//     lastName:"",
-//     address:"",
-//     city:"",
-//     email:""
-//   }, 
-//   products: [OP]
- 
-// }
-// console.log(validationCommande.products)
-
-// const myForm = document.getElementById('myForm')
-// const checkout = document.getElementById('checkout')
-// myForm.addEventListener('submit', async function(e) { 
-// console.log(checkout)
-
-// const firstName = document.getElementById('fname').value
-// const lastName = document.getElementById('lname').value
-// const address = document.getElementById('address').value
-// const city = document.getElementById('city').value
-// const email = document.getElementById('email').value
-
-
-
-// validationCommande.contact.firstName = firstName
-// validationCommande.contact.lastName = lastName
-// validationCommande.contact.address = address
-// validationCommande.contact.city = city
-// validationCommande.contact.email = email
-
-// console.log(validationCommande.contact)
-
-
-
-// var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
-// // init.push(formulaire)
-// localStorage.setItem('formulaire', JSON.stringify(validationCommande.contact))
-
-// const formData = new formData(this)
-
-// fetch('http://localhost:3000', {
-//   method: 'POST',
-//   headers: {
-//     'content-type': 'application/json'
-//   },
-//   body: JSON.stringify(formulaire)
-
-// }).then(res => {
-//     return res.json
-// })
-   
-// .then(data => console.log(data)) 
-//  .catch(error => console.log('error'))
-  
-
-
-
-// }
-
- 
-  // ) 
 
 })
+
+
+
+
 
 })}
