@@ -110,7 +110,15 @@
         }
 
 // ***********************set local storage ******************************        
+      
         
+        // ids.push(id)
+        // console.log(ids)
+        // console.log(galOurs._id)
+        // localStorage.setItem('ids', JSON.stringify(ids))
+     
+        
+       
         var OP  = JSON.parse(localStorage.getItem('cartId'))
 
         function addCart(){ 
@@ -118,23 +126,74 @@
         const addToCartButton = document.getElementById('addCart')
         
         addToCartButton.addEventListener('click', async function() { 
+           
+          
         console.log(galOursStr)    
         if(OP.includes(galOursStr)){
             alert('already in cart')
         }else{ 
+
         OP.push(galOursStr)
-        
+     
+      
         localStorage.setItem('cartId', JSON.stringify(OP))
         alert('Added to Storage')
         location.reload()
-            
+        
         } 
     }
         ) }   
 
         addCart()
+
+
+        if(localStorage.getItem('ids')){ 
+            console.log('ids présent')
+        }
+
+        else{ 
+          let idInit = []
+          localStorage.setItem('ids', JSON.stringify(idInit)) 
+          console.log('création du ID array')
+        }
+
+        
+
+        function addCartId(){ 
        
-        } }  
-        } )   
+         var varIds = oursID
+        //    var varIds = id
+      
+        
+        var ids = JSON.parse(localStorage.getItem('ids'))
+        
+
+            const addToCartButton = document.getElementById('addCart')
+            
+            addToCartButton.addEventListener('click', async function() { 
+               
+                ids.push(varIds) 
+                localStorage.setItem('ids', JSON.stringify(ids, ('_id : '))) 
+              
+            // if(ids.includes(id)){
+            //     alert('ID already in cart')
+            // }else{ 
+                
+            // ids.push(varIds)
+          
+            // localStorage.setItem('ids', JSON.stringify(ids))
+         
+            alert('Added ID to Storage')
+            location.reload()
+            
+              } 
+              )}
+         
+        
+            addCartId()
+
+       
+            }}})
+            
         
                     

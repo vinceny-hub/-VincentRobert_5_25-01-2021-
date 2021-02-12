@@ -96,13 +96,19 @@
     productContainer.innerHTML = tableData
   
     })
+
+    let productsIds = {}
+    
     
    
     OP.forEach(function (i,item, index, array) {
     var iPar = JSON.parse(i)
     var itemPar = JSON.parse(item)
-    console.log(iPar)
+    // console.log(iPar._id)
+    idStr = JSON.stringify(iPar._id)
+    
     localStorage.setItem('prix', JSON.stringify(OP))
+    
     // let idPrice = itemPar + 100000
     let removeButton = document.querySelectorAll(".removed")
     let minusBtn = document.querySelectorAll(".dec")
@@ -324,7 +330,7 @@
 
     }
 
-  })
+ 
   
 
 
@@ -411,8 +417,11 @@
 //   localStorage.setItem('formulaire', JSON.stringify(init))
   
 //   }
-
-
+var ids = JSON.parse(localStorage.getItem('ids'))
+for(i=0; i<= OP.length ; i++){
+function product(_id) {
+this._id = _id
+}}
 const validationCommande = {
   contact: {
   firstName:"" ,
@@ -421,12 +430,25 @@ const validationCommande = {
   city:"",
   email:""
 }, 
-products: [{_id:"5beaa8bf1c9d440000a57d94"}]
+products: [{
+   _id: ids[0]
+}]
 }
+console.log(iPar._id)
+
+// validationCommande.products.push(localStorage.getItem('ids'))
+
+console.log(ids[0])
+idsStr = JSON.stringify(ids)
+console.log(idsStr[0])
+// validationCommande.products.push(new product(ids[0]))
+validationCommande.products.push(new product(ids[1]))
+console.log(iPar)
+console.log(validationCommande.products)
 
 
-validationCommandeStr = JSON.stringify(validationCommande)
-console.log(validationCommandeStr)
+// validationCommandeStr = JSON.stringify(validationCommande)
+// console.log(validationCommandeStr)
 
 
 
@@ -457,9 +479,14 @@ validationCommande.contact.email = email
 var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
 // init.push(formulaire)
 localStorage.setItem('formulaire', JSON.stringify(validationCommande))
-formulaireStr =  JSON.stringify(formulaire)
-
+formulaireStr = JSON.stringify(formulaire)
+})
 // ***************************************************************************
+
+var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
+// init.push(formulaire)
+localStorage.setItem('formulaire', JSON.stringify(validationCommande))
+formulaireStr = JSON.stringify(formulaire)
 
 fetch('http://localhost:3000/api/teddies/order', {
   method: 'POST',
@@ -477,7 +504,8 @@ fetch('http://localhost:3000/api/teddies/order', {
 .then(function(data){
  console.log('post request',data)
 })
-})
+
+
 
 
 
@@ -550,4 +578,4 @@ fetch('http://localhost:3000/api/teddies/order', {
 
 })
 
-}
+})}
