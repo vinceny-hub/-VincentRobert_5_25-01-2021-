@@ -23,9 +23,17 @@ const validationCommande = {
     city:"Flaviac",
     email:"vinceny@live.fr"
   }, 
-  products: [{_id:"5beaa8bf1c9d440000a57d94"}]
+  products: [{
+    "_id":"5beaa8bf1c9d440000a57d94",
+    "_id":"5beaa8bf1c9d440000a57d95",
+    "_id": "5be9c8541c9d440000665243"
+  }]
  
 }
+for( i=0; i<validationCommande.products.length; i++){
+  
+  }
+  
 validationCommandeStr = JSON.stringify(validationCommande)
 console.log(validationCommandeStr)
 

@@ -408,35 +408,35 @@
   
 
 //***********************************   formulaire ************************************************
+// function postContact(){}
+// var ids = JSON.parse(localStorage.getItem('ids'))
 
-var ids = JSON.parse(localStorage.getItem('ids'))
-
-function product(_id) {
-this._id = _id
-}
-for( i=0; i<OP.length; i++){
-let products = [{_id : ids}]
-
+// function product(_id) {
+// this._id = _id
+// }
+// for( i=0; i<OP.length; i++){
+// let products = [{_id : ids}]
+// }
 
 
-const validationCommande = {
-  contact: {
-  firstName:"" ,
-  lastName:"",
-  address:"",
-  city:"",
-  email:""
-}, 
-products: [{
-   _id: ids[i],
+// const validationCommande = {
+//   contact: {
+//   "firstName":"" ,
+//   "lastName":"",
+//   "address":"",
+//   "city":"",
+//   "email": ""
+// }, 
+// products: [{
+//    _id: ids[0],
    
    
-}]
-}
-// mettre à 1 ou -1 pour pouvoir avoir le id dans l'index 0
-for( j=0; j<OP.length; j++){
+// }]
+// }
+// // mettre à 1 ou -1 pour pouvoir avoir le id dans l'index 0
+// for( j=1; j<OP.length; j++){
   
-validationCommande.products.push(new product(ids[j]))
+// validationCommande.products.push(new product(ids[j]))
  
  
 
@@ -446,58 +446,57 @@ validationCommande.products.push(new product(ids[j]))
 
 
 
-const myForm = document.getElementById('myForm')
-const checkout = document.getElementById('checkout')
-myForm.addEventListener('submit', async function(e) { 
-// console.log(checkout)
+// const myForm = document.getElementById('myForm')
+// const checkout = document.getElementById('checkout')
+// myForm.addEventListener('submit', async function(e) { 
+// // console.log(checkout)
 
-const firstName = document.getElementById('fname').value
-const lastName = document.getElementById('lname').value
-const address = document.getElementById('address').value
-const city = document.getElementById('city').value
-const email = document.getElementById('email').value
-
-
-
-validationCommande.contact.firstName = firstName
-validationCommande.contact.lastName = lastName
-validationCommande.contact.address = address
-validationCommande.contact.city = city
-validationCommande.contact.email = email
-
-// console.log(validationCommande.contact)
+// const firstName = document.getElementById('fname').value
+// const lastName = document.getElementById('lname').value
+// const address = document.getElementById('address').value
+// const city = document.getElementById('city').value
+// const email = document.getElementById('email').value
 
 
 
-var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
-// init.push(formulaire)
-localStorage.setItem('formulaire', JSON.stringify(validationCommande))
-formulaireStr = JSON.stringify(formulaire)
-})
-// ***************************************************************************
+// validationCommande.contact.firstName = firstName
+// validationCommande.contact.lastName = lastName
+// validationCommande.contact.address = address
+// validationCommande.contact.city = city
+// validationCommande.contact.email = email
 
-var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
-// init.push(formulaire)
-localStorage.setItem('formulaire', JSON.stringify(validationCommande))
-formulaireStr = JSON.stringify(formulaire)
- }} 
-fetch('http://localhost:3000/api/teddies/order', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization' : 'Access-Control-Allow-Methods'
-  },
-  body: formulaireStr
 
-})
-.then(function(response){
-    return response.json()
-})
+
+
+// var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
+
+// localStorage.setItem('formulaire', JSON.stringify(validationCommande))
+// formulaireStr = JSON.stringify(formulaire)
+// })
+// // ***************************************************************************
+
+// var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
+// // init.push(formulaire)
+// localStorage.setItem('formulaire', JSON.stringify(validationCommande))
+// formulaireStr = JSON.stringify(formulaire)
+//  }
+// fetch('http://localhost:3000/api/teddies/order', {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json',
+//     'Authorization' : 'Access-Control-Allow-Methods'
+//   },
+//   body: formulaireStr
+
+// })
+// .then(function(response){
+//     return response.json()
+// })
    
-.then(function(data){
- console.log('post request',data)
+// .then(function(data){
+//  console.log('post request',data)
 
-})
+// })
 
 
 
