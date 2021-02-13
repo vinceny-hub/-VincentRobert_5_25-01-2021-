@@ -194,17 +194,39 @@ fetch('http://localhost:3000/api/teddies/order', {
  console.log('post request',data)
  let dataStr = JSON.stringify(data)
 
-saveIdOrderInformation()
 
+ 
 function saveIdOrderInformation() {
     let initIdOrderInformation = []
-    localStorage.setItem('orderIdInformation', JSON.stringify(initIdOrderInformation)) 
+    localStorage.setItem('orderIdInformation',JSON.stringify(initIdOrderInformation))
     let orderIdInformation = JSON.parse(localStorage.getItem('orderIdInformation'))
     orderIdInformation.push(dataStr)
-    localStorage.setItem('orderIdInformation', JSON.stringify(orderIdInformation))
+    localStorage.setItem('orderIdInformation',  JSON.stringify(orderIdInformation))
+    if(orderIdInformation != "{}"){ 
+        console.log(orderIdInformation[0])
     
+        location.href='confirmation.html'
+        }
+        
+
 }
 
+saveIdOrderInformation()
+
+           
 })
+
+
 }}
+
+// function closeAll(){ 
+//     const closeTab = document.getElementById('closeTab')
+//     closeTab.addEventListener('click', async function() { 
+//     alert('Added ID to Storage')
+//     location.reload()
+    
+//       } 
+//       )}
+
+//       closeAll()
 
