@@ -128,20 +128,20 @@
         addToCartButton.addEventListener('click', async function() { 
            
           
-        console.log(galOursStr)    
-        if(OP.includes(galOursStr)){
-            alert('already in cart')
-        }else{ 
+        // console.log(galOursStr)    
+        // if(OP.includes(galOursStr)){
+        //     alert('already in cart')
+        // }else{ 
 
         OP.push(galOursStr)
      
       
         localStorage.setItem('cartId', JSON.stringify(OP))
-        alert('Added to Storage')
+        alert('Added to Cart')
         location.reload()
         
         } 
-    }
+    // }
         ) }   
 
         addCart()
@@ -183,7 +183,7 @@
           
             // localStorage.setItem('ids', JSON.stringify(ids))
          
-            alert('Added ID to Storage')
+            // alert('Added ID to Storage')
             location.reload()
             
               } 
@@ -191,6 +191,54 @@
          
         
             addCartId()
+
+
+
+            if(localStorage.getItem('prices')){ 
+                console.log('prices présent')
+            }
+    
+            else{ 
+              let pricesInit = []
+              localStorage.setItem('prices', JSON.stringify(pricesInit)) 
+              console.log('création du prices array')
+            }
+    
+            
+    
+            function addCartPrice(){ 
+           
+             var varPrice = galOurs.price
+             console.log(galOurs.price)
+            //    var varIds = id
+          
+            
+            var prices = JSON.parse(localStorage.getItem('prices'))
+            
+    
+                const addToCartButton = document.getElementById('addCart')
+                
+                addToCartButton.addEventListener('click', async function() { 
+                   
+                    prices.push(varPrice) 
+                    localStorage.setItem('prices', JSON.stringify(prices)) 
+                  
+                // if(ids.includes(id)){
+                //     alert('ID already in cart')
+                // }else{ 
+                    
+                // ids.push(varIds)
+              
+                // localStorage.setItem('ids', JSON.stringify(ids))
+             
+                // alert('Added ID to Storage')
+                location.reload()
+                
+                  } 
+                  )}
+             
+            
+                addCartPrice()
 
        
             }}})

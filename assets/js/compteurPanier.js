@@ -13,9 +13,9 @@
        
     let dataStr = JSON.stringify(data)
     data = JSON.parse(dataStr)
-
+    if(OP.length>0){ 
     let productNumbers = OP.length
     document.querySelector('.cart span').textContent = productNumbers
-      
+    }
       })
   
