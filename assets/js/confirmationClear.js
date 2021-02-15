@@ -35,12 +35,16 @@ function closeAll(){
     <h2 class="">Nous vous remercions pour votre achat</h2>
     <span class="lead">Votre numéro de commande est :</span><p class="lead font-weight-bold">${iOrder.orderId}</p>
     <h2 class="font-weight-light">Récapitulatif de votre commande :</h2><div class="récapitulatif"></div>
+    <h3 class="font-weight-normal" id="totalOrder"></h3>
 
 
 
               
-                             `     })
-
+                             `   
+                             
+                            
+                            })
+                             
 
                              let OP = JSON.parse(localStorage.getItem('cartId'))
                              OP.forEach(function (i,item, index, array) {
@@ -74,5 +78,13 @@ function closeAll(){
                                   </section>
 
                               `
+                              
                                  
                               })
+                              let pricesOurs = JSON.parse(localStorage.getItem('prices'))
+                              const reducer = (accumulator, currentValue) => accumulator + currentValue
+                              let totalOrder = document.getElementById('totalOrder')
+                            
+                              totalOrder.innerText = `Montant total : ₽ ${pricesOurs.reduce(reducer)}`
+
+                             

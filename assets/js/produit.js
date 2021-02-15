@@ -34,7 +34,7 @@
     oursonUnique.innerHTML = 
     `
     <div class="container">
-        <h1 class="my-4"><small> Teddies les petits oursons : </small><br><strong font-weight-bold>${galOurs.name}</strong>
+        <h1 class="my-2"><small></small><strong font-weight-bold>${galOurs.name}</strong>
         </h1>
             <div class="row">
                 <div class="col-md-8">

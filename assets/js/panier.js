@@ -69,7 +69,7 @@
                   
                
                      
-                      <span class="price col-8 text-center type="text" id="">₽ ${iPar.price} </span>
+                      <span class="price col-8 text-center" type="text" id="">₽ ${iPar.price} </span>
                      
                     
                 
@@ -111,7 +111,7 @@
   
     removeItem(e)
     })
-    
+    var prices = JSON.parse(localStorage.getItem('prices'))
      function removeItem(e){
   
       if (e.target.classList.contains('removed')){
@@ -122,6 +122,12 @@
             let itemParIndex = e.target.id
             const removeO = OP.splice(itemParIndex,1)
             localStorage.setItem('cartId', JSON.stringify(OP))
+            const remove1 = prices.splice(itemParIndex,1)
+            localStorage.setItem('prices', JSON.stringify(prices))
+
+
+      
+
             console.log(OP)
             console.log(itemParIndex)
             console.log(removeO)
@@ -148,7 +154,9 @@ let pricesOurs = JSON.parse(localStorage.getItem('prices'))
 const reducer = (accumulator, currentValue) => accumulator + currentValue
 console.log(pricesOurs.reduce(reducer))
 let total = document.getElementById('total')
+let totalValidationBtn = document.getElementById('totalValidationBtn')
 total.innerText = `₽`+ pricesOurs.reduce(reducer)
+totalValidationBtn.innerText = `₽`+ pricesOurs.reduce(reducer)
 
 
 
