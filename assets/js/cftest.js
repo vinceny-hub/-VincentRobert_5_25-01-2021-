@@ -1,4 +1,10 @@
+
+
+
+
 function postContact(){}
+
+ 
 var ids = JSON.parse(localStorage.getItem('ids'))
 
 function product(_id) {
@@ -35,6 +41,7 @@ validationCommande.products.push(new product(ids[j]))
  
 
 }
+
 var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
 
 localStorage.setItem('formulaire', JSON.stringify(validationCommande))
@@ -46,7 +53,6 @@ formulaireStr = JSON.stringify(formulaire)
 const myForm = document.getElementById('myForm')
 const checkout = document.getElementById('checkout')
 myForm.addEventListener('submit', async function(e) { 
-
 
 const firstName = document.getElementById('fname').value
 const lastName = document.getElementById('lname').value
@@ -67,14 +73,13 @@ validationCommande.contact.email = email
 
 var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
 
-
 localStorage.setItem('formulaire', JSON.stringify(validationCommande))
 formulaireStr = JSON.stringify(formulaire)
 
 })
 if(formulaire != null){ 
 formulaireFetch()}
-console.log(formulaire.contact.firstName)
+
 // ***************************************************************************
 function formulaireFetch() {
     
@@ -96,12 +101,23 @@ fetch('http://localhost:3000/api/teddies/order', {
 .then(function(response){
   if(response.ok){
     return response.json()
-}})
+}
+
+else{
+  localStorage.removeItem('formulaire');
+  console.log('Mauvaise réponse du réseau');
+  location.reload()
+}
+})
+
+.catch(function(error) {
+  console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+})
    
 .then(function(data){
 if(data){ 
- console.log('post request',data)
- let dataStr = JSON.stringify(data)
+console.log('post request',data)
+let dataStr = JSON.stringify(data)
 
  
 
@@ -113,17 +129,18 @@ function saveIdOrderInformation() {
     orderIdInformation.push(dataStr)
     localStorage.setItem('orderIdInformation',  JSON.stringify(orderIdInformation))
     if(orderIdInformation != "{}"){ 
-        console.log(orderIdInformation[0])
-    
-        location.href='confirmation.html'
-        }
+    console.log(orderIdInformation[0])
+
+    location.href='confirmation.html'
+    }
         
 
 }
 
 saveIdOrderInformation()
 
-           
+          
 }})
+
 
 }
