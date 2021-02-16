@@ -21,7 +21,8 @@
     let dataStr = JSON.stringify(data)
     data = JSON.parse(dataStr)
     let galOursStr =JSON.stringify(galOurs)
-    
+    galOursParse = JSON.parse(galOursStr)
+    console.log(galOursParse)
 
     liColors = galOurs.colors.length;
     text = "<ul>";
@@ -145,6 +146,7 @@
         ) }   
 
         addCart()
+        
 
 
         if(localStorage.getItem('ids')){ 
@@ -174,6 +176,7 @@
                
                 ids.push(varIds) 
                 localStorage.setItem('ids', JSON.stringify(ids, ('_id : '))) 
+                console.log(localStorage.setItem('ids', JSON.stringify(ids, ('_id : '))))
               
             // if(ids.includes(id)){
             //     alert('ID already in cart')

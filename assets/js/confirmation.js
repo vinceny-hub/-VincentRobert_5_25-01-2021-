@@ -125,12 +125,12 @@ products: [{
 }
 
 // mettre à 1 ou -1 pour pouvoir avoir le id dans l'index 0
-for( j=1; j<ids.length; j++){
+for( j=0; j<ids.length; j++){
   console.log(ids.length)
   
 validationCommande.products.push(new product(ids[j]))
  
- 
+}
 
 
 
@@ -175,7 +175,7 @@ var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
 
 localStorage.setItem('formulaire', JSON.stringify(validationCommande))
 formulaireStr = JSON.stringify(formulaire)
- 
+
 fetch('http://localhost:3000/api/teddies/order', {
   method: 'POST',
   headers: {
@@ -217,7 +217,7 @@ saveIdOrderInformation()
 })
 
 
-}}
+}
 
 // function closeAll(){ 
 //     const closeTab = document.getElementById('closeTab')
