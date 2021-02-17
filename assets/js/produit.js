@@ -27,11 +27,13 @@
     console.log(galOursParse)
 
     liColors = galOurs.colors.length;
-    text = "<ul>";
+    text = "<div class='dropdown'>";
     for (i = 0; i < liColors; i++) {
-    text += "<li>" + galOurs.colors[i] + "</li>";
+    text += "<a class='dropdown-item' href='#'>" + galOurs.colors[i] + "</a>";
     }
-    text += "</ul>";
+    text += "</div>";
+
+     
     
     const oursonUnique = document.getElementById('oursonsProduit')
     oursonUnique.innerHTML = 
@@ -48,7 +50,10 @@
                     <h3 class="my-3">Description de l'ourson</h3>
                     <p class="font-italic font-weight-bold">${galOurs.description}</p>
             
-                    <h4 class="my-3">${text}</h4>
+                    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button><div class="dropdown-menu" aria-labelledby="dropdownMenuButton">${text}</div></div>
                     <p class="font-italic font-weight-bold"><strong>₽ ${galOurs.price}</strong></p>
                     <button id="addCart" class="btn btn-info shop-item-button addToCartBtn addToCart">Ajouter au panier</button>
                 </div>
