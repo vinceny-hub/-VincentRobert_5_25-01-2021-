@@ -5,25 +5,25 @@
     }else{ 
 
     let OP = JSON.parse(localStorage.getItem('cartId'))
-    fetch ('http://localhost:3000/api/teddies')
-    .then((response) => response.json())
+    // fetch ('http://localhost:3000/api/teddies')
+    // .then((response) => response.json())
 
-    .then((data) => {
-    localStorage.setItem('cartId', JSON.stringify(OP));                            
+    // .then((data) => {
+    // localStorage.setItem('cartId', JSON.stringify(OP));                            
     
-    // console.log(OP)
+     console.log(localStorage.getItem('cartId'))
        
-    let dataStr = JSON.stringify(data)
-    data = JSON.parse(dataStr)
+    // let dataStr = JSON.stringify(data)
+    // data = JSON.parse(dataStr)
 
     let productContainer = document.querySelector('.container-ours')
     let tableData = ''
     tableData += ``
-    OP.forEach(function (i,item, index, array) {
-    var iPar = JSON.parse(i)
-    var itemPar = JSON.parse(item)
+    OP.forEach(function (item, index, array) {
+    var iPar = JSON.parse(item)
+    var itemPar = JSON.parse(index)
     
-    
+    console.log(iPar)
     
 
     // let idPrice = itemPar + 100000
@@ -86,28 +86,28 @@
       </section>
        `
          
-     var tot = document.getElementById("idPrice")
+    //  var tot = document.getElementById("idPrice")
     //  console.log(tot)
     productContainer.innerHTML = tableData
   
     })
   
-    OP.forEach(function (i,item, index, array) {
-    var iPar = JSON.parse(i)
-    var itemPar = JSON.parse(item)
+    OP.forEach(function (item, index, array) {
+    var iPar = JSON.parse(item)
+    var itemPar = JSON.parse(index)
     // console.log(iPar._id)
     idStr = JSON.stringify(iPar._id)
     
-    localStorage.setItem('prix', JSON.stringify(OP))
+    // localStorage.setItem('prix', JSON.stringify(OP))
     
     // let idPrice = itemPar + 100000
     let removeButton = document.querySelectorAll(".removed")
-    let minusBtn = document.querySelectorAll(".dec")
-    let plusBtn = document.querySelectorAll(".inc")
-    let totOurson = iPar.price
+    // let minusBtn = document.querySelectorAll(".dec")
+    // let plusBtn = document.querySelectorAll(".inc")
+    // let totOurson = iPar.price
     
    
-    removeButton[item].addEventListener('click', async function(e) { 
+    removeButton[index].addEventListener('click', async function(e) { 
   
     removeItem(e)
     })
@@ -149,7 +149,7 @@
 
 
 )
-
+function montantTotal(){ 
 let pricesOurs = JSON.parse(localStorage.getItem('prices'))
 const reducer = (accumulator, currentValue) => accumulator + currentValue
 console.log(pricesOurs.reduce(reducer))
@@ -157,11 +157,13 @@ let total = document.getElementById('total')
 let totalValidationBtn = document.getElementById('totalValidationBtn')
 total.innerText = `₽`+ pricesOurs.reduce(reducer)
 totalValidationBtn.innerText = `₽`+ pricesOurs.reduce(reducer)
-
+}
+montantTotal()
 
 
 // //   console.log(iPar.price)
 
 
 
-})}
+}
+// )}

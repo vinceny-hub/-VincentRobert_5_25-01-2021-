@@ -5,14 +5,16 @@
     .then((response) => response.json())
     .then((data) => {
 
+    searchId() 
+    function searchId(){ 
     var search_params = new URLSearchParams(window.location.search); 
-
     let oursID = search_params.get('id');
     var search_params = new URLSearchParams(window.location.search);
     if(search_params.has('id')) {
     var id = search_params.getAll('id');
-     
-        
+    console.log(id)
+    }
+      
     for (var i = 0; i < 1; i++){
     let galOurs = data.find(nId => {
     return nId._id === oursID            
@@ -143,8 +145,9 @@
         
         } 
     // }
+  
         ) }   
-
+       
         addCart()
         
 

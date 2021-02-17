@@ -2,17 +2,18 @@
 
 
 
-function postContact(){}
+// function postContact(){}
 
  
 var ids = JSON.parse(localStorage.getItem('ids'))
 
 function product(_id) {
 this._id = _id
+console.log(_id)
 }
-for( i=0; i<ids.length; i++){
-let products = [{_id : ids[i]}]
-}
+// for( i=0; i<ids.length; i++){
+// let products = [{_id : ids[i]}]
+// }
 
 
 const validationCommande = {
@@ -122,7 +123,7 @@ let dataStr = JSON.stringify(data)
  
 
  
-function saveIdOrderInformation() {
+function saveIdOrderInformation() { 
     let initIdOrderInformation = []
     localStorage.setItem('orderIdInformation',JSON.stringify(initIdOrderInformation))
     let orderIdInformation = JSON.parse(localStorage.getItem('orderIdInformation'))
@@ -132,6 +133,7 @@ function saveIdOrderInformation() {
     console.log(orderIdInformation[0])
 
     location.href='confirmation.html'
+    
     }
         
 

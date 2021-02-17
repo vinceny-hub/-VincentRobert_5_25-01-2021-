@@ -1,15 +1,18 @@
 function closeAll(){ 
     const closeTab = document.getElementById('closeTab')
     closeTab.addEventListener('click', async function() { 
-    alert('Added ID to Storage')
-    localStorage.clear(),
-  
+    alert('merci pour votre achat, redirection vers la page d\'accueil')
+    localStorage.removeItem('cartId'),
+    localStorage.removeItem('prices'),
+    localStorage.removeItem('formulaire'),
+    localStorage.removeItem('ids'),
+    localStorage.removeItem('orderIdInformation'),
     location.href = "index.html"
       } 
       )}
 
       closeAll()
-
+      console.log(localStorage.getItem('orderIdInformation'))
      
       let informationOrder = JSON.parse(localStorage.getItem('orderIdInformation'))
       console.log(informationOrder[0])
