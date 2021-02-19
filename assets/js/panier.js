@@ -124,6 +124,9 @@
             localStorage.setItem('cartId', JSON.stringify(OP))
             const remove1 = prices.splice(itemParIndex,1)
             localStorage.setItem('prices', JSON.stringify(prices))
+            const remove2 = ids.splice(itemParIndex,1)
+            localStorage.setItem('ids', JSON.stringify(ids))
+
 
 
       

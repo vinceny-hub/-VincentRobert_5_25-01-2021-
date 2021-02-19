@@ -1,3 +1,5 @@
+
+
 function closeAll(){ 
     const closeTab = document.getElementById('closeTab')
     closeTab.addEventListener('click', async function() { 
