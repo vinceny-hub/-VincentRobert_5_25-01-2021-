@@ -42,7 +42,7 @@ validationCommande.products.push(new product(ids[j]))
 const myForm = document.getElementById('myForm')
 const checkout = document.getElementById('checkout')
 myForm.addEventListener('submit', async function(e) { 
-
+console.log(myForm)
 
 const firstName = document.getElementById('fname').value
 const lastName = document.getElementById('lname').value

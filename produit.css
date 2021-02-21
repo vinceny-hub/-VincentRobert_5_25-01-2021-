@@ -1,0 +1,124 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: 950px 500px;
+    margin-left: -157px;
+  
+}
+.grid-item{
+    border: 0.1vw rebeccapurple solid;
+}
+.imageProduit{
+    width: 950px;
+    height: 616px;
+    margin-left: -9px;
+}
+.dropdown{
+    width: 183px;
+    height: auto; 
+    font-size:larger;
+}
+
+
+.dropdown-toggle{
+    margin-left: 0px;
+    margin-bottom: 0px;
+    width: auto;
+}
+.priceText{
+    width: 250px;
+    margin-left: 215px;
+    margin-top: -45px;
+    font-size: xx-large;
+}
+.oursonsProduitContainer{
+    margin-top: 5px;
+    margin-bottom: 25px;
+    margin-left: -25px;
+}
+.addToCartBtn{
+    width: 150px;
+    height: ;
+    margin-top: 0px;
+    margin-left: 195px;
+    font-size: ;
+}
+
+@media screen and (max-width: 1199px) {
+
+    .dropdown-toggle{
+        margin-left: 155px;
+        margin-bottom: 0px;
+    }
+    .priceText{
+        margin-left: 19px;
+        margin-top: -45px;
+        font-size: xx-large;
+    }
+   
+    .addToCartBtn{
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .dropdown{
+        width: 275px;
+        height: auto; 
+        font-size: x-large;
+    }
+
+    .dropdown-toggle{
+        width: 275px;
+        height: 80px;
+        margin-left: 500px;
+        margin-top: -1900px;
+        font-size: x-large;
+    }
+
+    .addToCartBtn{
+       
+    }
+
+    .img-fluid {
+        max-width: 950px;
+    }
+    
+    .oursonsProduitContainer{
+      
+        margin-left: 0px;
+    }
+    .imageProduit{
+        width: 900px;
+        height: 616px;
+        margin-left: -58px;
+    }
+    .descriptionProduit{
+        margin-left: -100px;
+        margin-top: 0px;
+        font-size: x-large;        }
+        .grid-container{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 650px 450px;
+        }
+
+        .priceText{
+            width: 350px;
+            margin-left: 450px;
+            margin-top: -350px;
+            
+        }
+        .priceTextStrong{
+            font-size: xx-large;
+        }
+        .addToCartBtn{
+            margin-left: 400px;
+            margin-top: 25px;
+            width: 350px;
+            height: 100px;
+            font-size: xx-large;
+
+        }
+    
+}

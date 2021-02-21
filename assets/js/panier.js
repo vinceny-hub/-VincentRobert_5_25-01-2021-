@@ -87,8 +87,10 @@
     console.log(pricesOurs.reduce(reducer))
     let total = document.getElementById('total')
     let totalValidationBtn = document.getElementById('totalValidationBtn')
+    let totalValidation = document.getElementById('totalValidation')
     total.innerText = `₽`+ pricesOurs.reduce(reducer)
     totalValidationBtn.innerText = `₽`+ pricesOurs.reduce(reducer)
+    totalValidation.innerText = `₽`+ pricesOurs.reduce(reducer)
     }
     montantTotal()
     }

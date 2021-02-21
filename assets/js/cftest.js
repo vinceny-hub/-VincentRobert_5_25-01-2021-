@@ -33,6 +33,7 @@ const myForm = document.getElementById('myForm')
 const checkout = document.getElementById('checkout')
 
 myForm.addEventListener('submit', async function(e) { 
+console.log(myForm)
 e.preventDefault()
 let myRegexMail = /^[a-zA-Z-\s\-\_\é\è\à\ç\'\@\0-9\.]+$/ 
 let myRegexNamesCityLetters = /^[A-Z][a-zA-Z-\s\-\é\è\à\ç\']+$/ 

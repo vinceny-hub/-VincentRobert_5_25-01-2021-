@@ -37,23 +37,30 @@
         `
         <div class="container">
         <h1 class="my-2"><small></small><strong font-weight-bold>${galOurs.name}</strong></h1>
-          <div class="row">
-              <div class="col-md-8">
-                  <img class="img-fluid" src=${galOurs.imageUrl} alt="">
+          <div class="grid-container">
+            <div class="grid-item">
+              <div class="row imageProduit">
+                <div class="col-md-8 ">
+                  <img class="imageProduit" src=${galOurs.imageUrl} alt="">
+                </div>
               </div>
-              <div class="col-md-4">
+            </div>
+            <div class="grid-item">
+              <div class="col-md-4 descriptionProduit">
                 <h3 class="my-3">Description de l'ourson</h3>
                 <p class="font-italic font-weight-bold">${galOurs.description}</p>
                 <div class="dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown button
+                  Couleurs disponible
                   </button><div class="dropdown-menu" aria-labelledby="dropdownMenuButton">${text}</div>
                 </div>
-                <p class="font-italic font-weight-bold"><strong>₽ ${galOurs.price}</strong></p>
+                <p class="font-italic font-weight-bold priceText"><strong priceTextStrong>₽ ${galOurs.price}</strong></p>
                 <button id="addCart" class="btn btn-info shop-item-button addToCartBtn addToCart">Ajouter au panier</button>
               </div>
+            </div>
           </div>
         </div>
+       
         `
 
    
