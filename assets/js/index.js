@@ -1,4 +1,5 @@
 
+// ***************** récuperation des données du serveur  **********************************
 
 fetch ('http://localhost:3000/api/teddies')
 .then((res) => res.json())

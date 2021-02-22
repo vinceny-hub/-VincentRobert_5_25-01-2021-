@@ -1,10 +1,10 @@
 //***********************************   formulaire ************************************************
- 
+// déclaration du formulaire à envoyer au serveur via POST 
 var ids = JSON.parse(localStorage.getItem('ids'))
 
 function product(_id) {
 this._id = _id
-console.log(_id)
+// console.log(_id)
 }
 
 const validationCommande = {
@@ -21,19 +21,19 @@ products: [{
 }
 
 for( j=1; j<ids.length; j++){
-console.log(ids.length)
+// console.log(ids.length)
 validationCommande.products.push(new product(ids[j]))
 }
-
+// initiation du localStorage formulaire POST
 let initForm = []
 localStorage.setItem('formulaire', JSON.stringify(initForm)) 
 console.log('création formulaire')
-
+// formulaire inputs, erreurs et contraintes de saisie
 const myForm = document.getElementById('myForm')
 const checkout = document.getElementById('checkout')
 
 myForm.addEventListener('submit', async function(e) { 
-console.log(myForm)
+// console.log(myForm)
 e.preventDefault()
 let myRegexMail = /^[a-zA-Z-\s\-\_\é\è\à\ç\'\@\0-9\.]+$/ 
 let myRegexNamesCityLetters = /^[A-Z][a-zA-Z-\s\-\é\è\à\ç\']+$/ 
@@ -66,7 +66,7 @@ if(lastName.value.trim()==""){
   e.preventDefault()
 }else if(myRegexNamesCityLetters.test(lastName.value) == false){
   let lastNameError = document.getElementById('lastNameError')
-  lastNameError.innerHTML = "prénom non valide"
+  lastNameError.innerHTML = "nom non valide"
   lastNameError.style.color ='red'
   e.preventDefault()
   lastName.addEventListener('input', updatevalue)
@@ -134,7 +134,7 @@ if(email.value.trim()==""){
 else{
   mail = email.value
 }{
-
+// sauvegarde dans le localStorage des données du formulaire 
   validationCommande.contact.firstName = prenom
   validationCommande.contact.lastName = nom
   validationCommande.contact.address = adresse
@@ -150,10 +150,10 @@ else{
     }
   }
 })
-
+// envoi du formulaire dans l'aattende d'un réponse renvoyant le idOrder de confirmation
 var formulaire  = JSON.parse(localStorage.getItem('formulaire'))
 formulaireStr = JSON.stringify(formulaire)
-console.log(validationCommande.contact.email)
+// console.log(validationCommande.contact.email)
   
 // ***************************************************************************
 
@@ -179,6 +179,7 @@ function formulaireFetch() {
   .catch(function(error) {
     console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
   })
+  // sauvegarde des données dans localStorage si réponse renvoyée du serveur
   .then(function(data){
   if(data){ 
     console.log('post request',data)
@@ -190,7 +191,7 @@ function formulaireFetch() {
       orderIdInformation.push(dataStr)
       localStorage.setItem('orderIdInformation',  JSON.stringify(orderIdInformation))
       if(orderIdInformation != "{}"){ 
-      console.log(orderIdInformation[0])
+      // console.log(orderIdInformation[0])
       location.href='confirmation.html'
       }
     }

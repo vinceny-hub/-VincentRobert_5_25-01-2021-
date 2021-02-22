@@ -1,5 +1,5 @@
 
-
+// ******************************* effacement des données après avoir quitter la page par le bouton *******************************
 function closeAll(){ 
   const closeTab = document.getElementById('closeTab')
   closeTab.addEventListener('click', async function() { 
@@ -13,12 +13,14 @@ function closeAll(){
   })
 }
 closeAll()
-console.log(localStorage.getItem('orderIdInformation'))
+
+// ************************** insertion des informations de confirmation via localStorage orderIdInformation *************************
+// console.log(localStorage.getItem('orderIdInformation'))
 let informationOrder = JSON.parse(localStorage.getItem('orderIdInformation'))
-console.log(informationOrder[0])
+// console.log(informationOrder[0])
 informationOrder.forEach(function (i,item, index, array) {
   var iOrder = JSON.parse(i)
-  console.log(iOrder.contact.firstName)
+  // console.log(iOrder.contact.firstName)
   let productConfirmation = document.querySelector('.confirmation')
   productConfirmation.innerHTML += 
     `
@@ -43,15 +45,16 @@ informationOrder.forEach(function (i,item, index, array) {
       
     `   
     })
+// ************************** insertion des informations de confirmation via localStorage cardId (récapitulatif du panier)*************************
     let OP = JSON.parse(localStorage.getItem('cartId'))
     OP.forEach(function (i,item, index, array) {
       var iPar = JSON.parse(i)
       var itemPar = JSON.parse(item)
-      console.log(iPar.name)
+      // console.log(iPar.name)
       for(i=0; i<iPar.length;i++){ 
-        console.log(iPar.length)
+      // console.log(iPar.length)
       }
-      console.log(iPar)
+      // console.log(iPar)
     let productsRécapitulatif = document.querySelector('.récapitulatif')
     productsRécapitulatif.innerHTML += 
      `
@@ -80,7 +83,7 @@ informationOrder.forEach(function (i,item, index, array) {
     </section>
     `
     })
-
+// ************************** insertion des informations de confirmation via localStorage prices (somme) *************************
     let pricesOurs = JSON.parse(localStorage.getItem('prices'))
     const reducer = (accumulator, currentValue) => accumulator + currentValue
     let totalOrder = document.getElementById('totalOrder')

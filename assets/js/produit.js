@@ -1,37 +1,38 @@
 
 // ************************page description*******************************************************
-
+// recupération des données du serveur
     fetch ('http://localhost:3000/api/teddies')
     .then((response) => response.json())
     .then((data) => {
-
+// récupération de l'_id sur l'URL de la page
       var search_params = new URLSearchParams(window.location.search); 
       let oursID = search_params.get('id');
       var search_params = new URLSearchParams(window.location.search);
         if(search_params.has('id')) {
         var id = search_params.getAll('id');
-        console.log(id)
+        // console.log(id)
         }
-      
+// oursID id de l'ourson sélectionné, déclaration de galOurs = données de l'ourson selectionné
         for (var i = 0; i < 1; i++){
         let galOurs = data.find(nId => {
         return nId._id === oursID            
         })
-
+        // console.log(galOurs)
+// stringify / parse 
         let dataStr = JSON.stringify(data)
         data = JSON.parse(dataStr)
         let galOursStr =JSON.stringify(galOurs)
         galOursParse = JSON.parse(galOursStr)
-        console.log(galOursParse)
+        // console.log(galOursParse)
       
-      
+//  liste des couleurs
         liColors = galOurs.colors.length;
         text = "<div class='dropdown'>";
         for (i = 0; i < liColors; i++) {
         text += "<a class='dropdown-item' href='#'>" + galOurs.colors[i] + "</a>";
         }
         text += "</div>";
-      
+// insertion page produit
         const oursonUnique = document.getElementById('oursonsProduit')
         oursonUnique.innerHTML = 
         `
@@ -77,7 +78,7 @@
         }
 // ***********************************************************************
 // ***********************set local storage ******************************        
-      
+      // produits ajoutés au panier par le localStorage
         var OP  = JSON.parse(localStorage.getItem('cartId'))
       
         function addCart(){ 
@@ -98,7 +99,7 @@
           localStorage.setItem('ids', JSON.stringify(idInit)) 
           console.log('création du ID array')
         }
-  
+      // _id(s) ajouté(s) au localStroage
         function addCartId(){ 
           var varIds = oursID
           var ids = JSON.parse(localStorage.getItem('ids'))
@@ -106,7 +107,7 @@
           addToCartButton.addEventListener('click', async function() { 
             ids.push(varIds) 
             localStorage.setItem('ids', JSON.stringify(ids, ('_id : '))) 
-            console.log(localStorage.setItem('ids', JSON.stringify(ids, ('_id : '))))
+            // console.log(localStorage.setItem('ids', JSON.stringify(ids, ('_id : '))))
             location.reload()
             
           })
@@ -120,10 +121,10 @@
           localStorage.setItem('prices', JSON.stringify(pricesInit)) 
           console.log('création du prices array')
         }
-    
+      // prix ajoutés au localStorage
         function addCartPrice(){ 
           var varPrice = galOurs.price
-          console.log(galOurs.price)
+          // console.log(galOurs.price)
           var prices = JSON.parse(localStorage.getItem('prices'))
           const addToCartButton = document.getElementById('addCart')
           addToCartButton.addEventListener('click', async function() { 
