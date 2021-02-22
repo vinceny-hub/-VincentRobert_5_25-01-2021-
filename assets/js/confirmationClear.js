@@ -29,7 +29,7 @@ informationOrder.forEach(function (i,item, index, array) {
           <div class="col-12">
            
             <h1 class="font-weight-bold prenomText">${iOrder.contact.firstName}</h1>
-            <button type="button" id="closeTab" class="btn btn-primary btn-lg buttonClose buttonCloseTop">Merci et à bientôt sur notre site</button>
+            <!--<button type="button" id="closeTab" class="btn btn-primary btn-lg buttonClose buttonCloseTop">Merci et à bientôt sur notre site</button>-->
             <h2 class="">Nous vous remercions pour votre achat</h2>
             <div class="grid-container">
             <span class="lead">Votre numéro de commande est :</span>

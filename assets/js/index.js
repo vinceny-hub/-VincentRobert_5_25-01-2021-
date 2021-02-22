@@ -9,7 +9,7 @@ fetch ('http://localhost:3000/api/teddies')
         `
         <div class="col-12 col-md-6 col-lg-4 mb-4">
           <div class="card h-100">
-            <a href="produit.html?id=${data[i]._id}"><img src=${data[i].imageUrl} class="card-img-top"></a>
+            <a href="produit.html?id=${data[i]._id}"><img src=${data[i].imageUrl} class="card-img-top img-size"></a>
             <div class="card-body">
               <p class="card-title h3 font-weight-bold">
                 <a href="produit.html?id=${data[i]._id}">${data[i].name}</a>

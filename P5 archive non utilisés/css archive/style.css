@@ -16,13 +16,11 @@
  }
  .grid-item {
    background-color: rgba(255, 255, 255, 0.8);
-  
    padding: 10px;
    font-size: 30px;
    text-align: center;
  }
  .montant {
-  
    padding: 0px;
    text-align: left;
  
@@ -60,14 +58,16 @@
     
     }
  
- .product{
-    padding-right: 0px;
-    padding-left: 10px;
-    padding-bottom: 0px;
- }
+   .product{
+      padding-right: 0px;
+      padding-left: 10px;
+      padding-bottom: 0px;
+   }
+
    #totalValidation{
       display: none;
    }
+
    .totVal{
    display: none;
    }
@@ -79,42 +79,35 @@
       display: grid;
       grid-template-columns: 720px;
       grid-template-rows: auto auto; 
-    
       padding: 0px;
     }
     .grid-item {
       background-color: rgba(255, 255, 255, 0.8);
-    
       padding: 20px;
       font-size: 30px;
       text-align: center;
     }
     #checkout{
-      
-       margin-bottom: 50px;
+      margin-bottom: 50px;
     }
 
     
     .montant {
-      
       padding: 0px;
-      
-     
-    
     }
     .product{
       padding-right: 0px;
       padding-left: 10px;
       padding-bottom: 0px;
-   }
-      #totalValidation{
-         display: none;
-      }
-      .totVal{
+    }
+   #totalValidation{
       display: none;
-      }
+   }
+   .totVal{
+   display: none;
+   }
       
    
   
- }
+}
 
