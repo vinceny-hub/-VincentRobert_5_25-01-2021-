@@ -87,7 +87,7 @@
             OP.push(galOursStr)
             localStorage.setItem('cartId', JSON.stringify(OP))
             alert('Added to Cart')
-            location.reload()
+         
           }) 
         }   
         addCart()
@@ -130,7 +130,7 @@
           addToCartButton.addEventListener('click', async function() { 
             prices.push(varPrice) 
             localStorage.setItem('prices', JSON.stringify(prices)) 
-            location.reload()
+          
           })
         }
         addCartPrice()
