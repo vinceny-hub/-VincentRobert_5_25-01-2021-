@@ -4,6 +4,7 @@
 fetch ('http://localhost:3000/api/teddies')
 .then((res) => res.json())
 .then((data) => {
+  console.log(data)
   for (var i = 0; i < data.length; i++){ 
       const getOursons = document.getElementById('oursonsList')
       getOursons.innerHTML += 

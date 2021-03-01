@@ -3,7 +3,7 @@
 
     if(localStorage.getItem('cartId') == "[]"){ 
       location.href ='index.html'
-      localStorage.clear('quantityOurs')
+      // localStorage.clear('quantityOurs')
       alert("Panier vide redirection vers la page d'accueil")
     }else{ 
       let OP = JSON.parse(localStorage.getItem('cartId'))
@@ -14,6 +14,7 @@
       OP.forEach(function (item, index, array) {
       var iPar = JSON.parse(item)
       var itemPar = JSON.parse(index)
+      console.log(item)
       // console.log(iPar)
       tableData += 
       `

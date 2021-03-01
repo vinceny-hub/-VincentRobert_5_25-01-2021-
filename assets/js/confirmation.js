@@ -170,6 +170,7 @@ function formulaireFetch() {
   .then(function(response){
     if(response.ok){
       return response.json()
+     
   }else{
     localStorage.removeItem('formulaire');
     console.log('Mauvaise réponse du réseau');
@@ -182,6 +183,7 @@ function formulaireFetch() {
   // sauvegarde des données dans localStorage si réponse renvoyée du serveur
   .then(function(data){
   if(data){ 
+    
     console.log('post request',data)
     let dataStr = JSON.stringify(data)
     function saveIdOrderInformation() { 
