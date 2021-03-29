@@ -1,7 +1,7 @@
 
 // ***************** récuperation des données du serveur  **********************************
 
-fetch ('http://localhost:3000/api/teddies')
+fetch ('https://oc-devweb-p5-api.herokuapp.com/api/teddies')
 .then((res) => res.json())
 .then((data) => {
   console.log(data)

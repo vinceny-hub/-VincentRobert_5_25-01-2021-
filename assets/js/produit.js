@@ -1,7 +1,7 @@
 
 // ************************page description*******************************************************
 // recupération des données du serveur
-    fetch ('http://localhost:3000/api/teddies')
+    fetch ('https://oc-devweb-p5-api.herokuapp.com/api/teddies')
     .then((response) => response.json())
     .then((data) => {
 // récupération de l'_id sur l'URL de la page

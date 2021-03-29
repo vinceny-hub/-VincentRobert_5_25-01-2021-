@@ -158,7 +158,7 @@ formulaireStr = JSON.stringify(formulaire)
 // ***************************************************************************
 
 function formulaireFetch() {
-  fetch('http://localhost:3000/api/teddies/order', {
+  fetch('https://oc-devweb-p5-api.herokuapp.com/api/teddies/order', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
